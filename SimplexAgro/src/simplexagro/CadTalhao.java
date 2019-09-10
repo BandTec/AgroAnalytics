@@ -20,12 +20,12 @@ public class CadTalhao {
          lista = new ArrayList<Talhao>();
      }
      
-      //metodo adiciona cliente
+      //metodo adicion talhao
     public void adicionaTalhao(Talhao a) {
 
         lista.add(a);
         
-        System.out.println("O talhao "+ a.getApelido()+" foi cadastrado com sucesso!");
+        System.out.println("O talhão "+ a.getApelido()+" foi cadastrado com sucesso!");
 
     }
   

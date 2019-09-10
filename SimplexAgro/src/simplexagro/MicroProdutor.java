@@ -14,7 +14,7 @@ public class MicroProdutor extends Cliente {
     private String Cooperativa;
     
 
-    public MicroProdutor(String Cooperativa, String nome, String cpf, String rg, String endereco, String bairro, String cidade, String estado, String telefone, String celular, String email) {
+    public MicroProdutor( String nome, String cpf, String rg, String endereco, String bairro, String cidade, String estado, String telefone, String celular, String email,String Cooperativa) {
         super(nome, cpf, rg, endereco, bairro, cidade, estado, telefone, celular, email);
         this.Cooperativa = Cooperativa;
     
