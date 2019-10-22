@@ -2,25 +2,20 @@ package br.com.simplexagro.Simplex_Agro.domain;
 
 public class Planta {
 	
-	private int idPlanta;
+	private int id;
 	
 	private String nome;
 	
 	private String tipo;
 	
-	private int maturacao;
+	private int cicloEmDiasMaturacao;
 
+	private double preco;
+	
 	public int getIdPlanta() {
 		
-		return idPlanta;
+		return id;
 		
-	}
-
-	public void geradorIdPlanta(int idPlanta) {
-		
-		this.idPlanta = idPlanta;
-		
-		return; 
 	}
 
 	public String getNome() {
@@ -53,15 +48,27 @@ public class Planta {
 
 	public int getMaturacao() {
 		
-		return maturacao;
+		return  cicloEmDiasMaturacao;
 		
 	}
 	
-	public void setMaturacao(int maturacao) {
+	public void setMaturacao(int cicloEmDiasMaturacao) {
 		
-		this.maturacao = maturacao;
+		this. cicloEmDiasMaturacao =  cicloEmDiasMaturacao;
 		
 		return;
+	}
+
+	public double getPreco() {
+		
+		return preco;
+	
+	}
+
+	public void setPreco(double preco) {
+		
+		this.preco = preco;
+		
 	}
 	
 	

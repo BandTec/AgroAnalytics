@@ -2,7 +2,7 @@ package br.com.simplexagro.Simplex_Agro.domain;
 
 public class Insumo {
 	
-	private int idInsumo;
+	private int id;
 
 	private String nome;
 	
@@ -12,17 +12,13 @@ public class Insumo {
 	
 	private double quantUsada;
 	
+	private double quantRecomendada;
+	
 	private int tempoAcao;
 
 	public int getIdInsumo() {
 		
-		return idInsumo;
-		
-	}
-
-	public void setIdInsumo(int idInsumo) {
-		
-		this.idInsumo = idInsumo;
+		return id;
 		
 	}
 
@@ -74,6 +70,21 @@ public class Insumo {
 		
 	}
 
+	
+	public double getQuantRecomendada() {
+		
+		return quantRecomendada;
+	
+	}
+
+	public void setQuantRecomendada(double quantRecomendada) {
+		
+		this.quantRecomendada = quantRecomendada;
+		
+		return;
+		
+	}
+	
 	public int getTempoAcao() {
 		
 		return tempoAcao;
@@ -81,7 +92,9 @@ public class Insumo {
 	}
 
 	public void setTempoAcao(int tempoAcao) {
+		
 		this.tempoAcao = tempoAcao;
+		
 	}
 	
 	

@@ -1,10 +1,14 @@
 package br.com.simplexagro.Simplex_Agro.domain;
 
+import java.util.ArrayList;
+
 public class Colheita {
 	
 	private int idColheita;
 	
 	private long quantCaixa;
+	
+	private ArrayList<Caixa> caixa;
 
 	public int getIdColheita() {
 		
@@ -28,6 +32,18 @@ public class Colheita {
 		
 		this.quantCaixa = quantCaixa;
 		
+	}
+
+	public ArrayList<Caixa> getCaixa() {
+		
+		return caixa;
+	
+	}
+
+	public void setCaixa(ArrayList<Caixa> caixa) {
+		
+		this.caixa = caixa;
+	
 	}
 	
 	

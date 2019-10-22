@@ -2,21 +2,23 @@ package br.com.simplexagro.Simplex_Agro.domain;
 
 public class Talhao {
 	
-	private int idTalhao;
+	private int id;
 
 	private boolean disponibilidade; 
 	
 	private String nome;
+	
+	private double area;
 
 	public int getId_talhao() {
 		
-		return idTalhao;
+		return id;
 		
 	}
 
 	private void geradorIdTalhao(int idTalhao) {
 		
-		this.idTalhao = idTalhao;
+		this.id = idTalhao;
 		
 		return;
 	}
@@ -46,7 +48,22 @@ public class Talhao {
 		this.nome = nome;
 		
 		return;
+	}
+
+	public double getArea() {
+		
+		return area;
+		
+	}
+	
+
+	public void setArea(double area) {
+	
+		this.area = area;
+		
+		return; 
 	} 
+	
 	
 	
 	

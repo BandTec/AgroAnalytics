@@ -2,7 +2,7 @@ package br.com.simplexagro.Simplex_Agro.domain;
 
 public class Oferta {
 	
-	private int idOferta;
+	private int id;
 	
 	private double valorVendaPretendido;
 	
@@ -12,15 +12,7 @@ public class Oferta {
 
 	public int getIdOferta() {
 		
-		return idOferta;
-		
-	}
-
-	private void geradorIdOferta(int idOferta) {
-		
-		this.idOferta = idOferta;
-		
-		return;
+		return id;
 		
 	}
 
