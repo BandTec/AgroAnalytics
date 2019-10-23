@@ -15,7 +15,7 @@
 
 .menu-navigation-icons a {
     display: inline-block;
-    color: #000000;
+    color: #C0C0C0;
     background-color: #232526;
     font-size: 90px;
     font-weight: bold;
@@ -47,7 +47,7 @@
 
 
 /* Menu colors */
-.menu-navigation-icons a.menu-blue		{background: #d4e851;
+.menu-navigation-icons a.menu-blue		{background: #1f6616;
     background: -webkit-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(1, 70, 7));
     background: -o-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
     background: -moz-linear-gradient(bottom, rgb(8, 58, 4),rgb(9, 68, 4, 0.45), rgb(1, 70, 7));
@@ -59,47 +59,55 @@
     top: 225px;
 
 }
-.menu-navigation-icons a.menu-blue i	{ color: #000000;
+.menu-navigation-icons a.menu-blue i	{ color: #B0C4DE;
    
 }
 
 
 
-.menu-navigation-icons a.menu-green		{ background: #d4e851;
-    background: -webkit-linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.45), rgb(3, 231, 21));
-    background: -o-linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.38), rgb(3, 231, 21));
-    background: -moz-linear-gradient(bottom, rgb(16, 114, 7),rgb(30, 197, 15), rgb(3, 231, 21));
-    background: linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.4), rgb(3, 231, 21));
+.menu-navigation-icons a.menu-green		{ background: #1f6616;
+    background: -webkit-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(1, 70, 7));
+    background: -o-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
+    background: -moz-linear-gradient(bottom, rgb(8, 58, 4),rgb(9, 68, 4, 0.45), rgb(1, 70, 7));
+    background: linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
     position: absolute;
     width: 270px;
     height: 250px;
-    left: 400px;
+    left: 390px;
     top: 225px;
 }
-.menu-navigation-icons a.menu-green i	{ color: #32CD32; 
+.menu-navigation-icons a.menu-green i	{ color: #C0C0C0; 
    
 
 }
 
-.menu-navigation-icons a.menu-yellow	{ background: #d4e851;
-    background: -webkit-linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.45), rgb(3, 231, 21));
-    background: -o-linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.38), rgb(3, 231, 21));
-    background: -moz-linear-gradient(bottom, rgb(16, 114, 7),rgb(30, 197, 15), rgb(3, 231, 21));
-    background: linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.4), rgb(3, 231, 21)); 
-
+.menu-navigation-icons a.menu-yellow	{ background: #1f6616;
+    background: -webkit-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(1, 70, 7));
+    background: -o-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
+    background: -moz-linear-gradient(bottom, rgb(8, 58, 4),rgb(9, 68, 4, 0.45), rgb(1, 70, 7));
+    background: linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
+    position: absolute;
+    width: 270px;
+    height: 250px;
+    left: 688px;
+    top: 225px;
 }
-.menu-navigation-icons a.menu-yellow i	{ color: #32CD32;
+.menu-navigation-icons a.menu-yellow i	{ color: #C0C0C0;
     
 }
 
-.menu-navigation-icons a.menu-red 		{ background: #d4e851;
-    background: -webkit-linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.45), rgb(3, 231, 21));
-    background: -o-linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.38), rgb(3, 231, 21));
-    background: -moz-linear-gradient(bottom, rgb(16, 114, 7),rgb(30, 197, 15), rgb(3, 231, 21));
-    background: linear-gradient(bottom, rgb(16, 114, 7), rgba(30, 197, 15, 0.4), rgb(3, 231, 21));
-
+.menu-navigation-icons a.menu-red 		{ background: #1f6616;
+    background: -webkit-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(1, 70, 7));
+    background: -o-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
+    background: -moz-linear-gradient(bottom, rgb(8, 58, 4),rgb(9, 68, 4, 0.45), rgb(1, 70, 7));
+    background: linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
+    position: absolute;
+    width: 270px;
+    height: 250px;
+    left: 990px;
+    top: 225px;
 }
-.menu-navigation-icons a.menu-red i		{ color: #32CD32; }
+.menu-navigation-icons a.menu-red i		{ color: #C0C0C0; }
 
 
 
