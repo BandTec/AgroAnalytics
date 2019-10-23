@@ -1,16 +1,28 @@
 package br.com.simplexagro.Simplex_Agro.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
 public class Oferta {
 	
-	private int id;
+	@Id
+	@GeneratedValue
+	private long id;
 	
+	@JsonProperty
 	private double valorVendaPretendido;
 	
+	@JsonProperty
 	private boolean acordo;
 	
+	@JsonProperty
 	private double valorCompraPretendido;
 
-	public int getIdOferta() {
+	public long getId() {
 		
 		return id;
 		

@@ -1,22 +1,37 @@
 package br.com.simplexagro.Simplex_Agro.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
 public class Insumo {
 	
-	private int id;
-
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@JsonProperty
 	private String nome;
 	
+	@JsonProperty
 	private String tipo;
 	
+	@JsonProperty
 	private double quantAtual;
 	
+	@JsonProperty
 	private double quantUsada;
 	
+	@JsonProperty
 	private double quantRecomendada;
 	
+	@JsonProperty
 	private int tempoAcao;
 
-	public int getIdInsumo() {
+	public long getIdInsumo() {
 		
 		return id;
 		

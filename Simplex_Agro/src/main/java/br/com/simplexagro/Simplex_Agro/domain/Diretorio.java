@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Diretorio {
 	
-	public void criarDiretorio() {
+	public static void  criarDiretorio() {
 
         //Váriaveis
         File diretorio;

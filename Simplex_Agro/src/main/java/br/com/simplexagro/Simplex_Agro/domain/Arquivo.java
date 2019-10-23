@@ -16,11 +16,11 @@ package br.com.simplexagro.Simplex_Agro.domain;
 
 	public class Arquivo {
 
-	    File arquivo;
+	    static File arquivo;
 
-	    Date data;
+	    static Date data;
 
-	    public void criarArquivo() throws FileNotFoundException {
+	    public static void criarArquivo() throws FileNotFoundException {
 	        //Variaveis 
 
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -61,7 +61,7 @@ package br.com.simplexagro.Simplex_Agro.domain;
 
 	    }
 
-	    public void escreverArquivo(File arquivo) {
+	    public static void escreverArquivo(File arquivo) {
 
 	        try {
 
@@ -80,7 +80,7 @@ package br.com.simplexagro.Simplex_Agro.domain;
 	            marcar = new BufferedWriter(escrever);
 
 	            //Utilizando o metodo de write da classe Buffered que escreve no log dados de data e hora
-	            marcar.write("[" + LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)) + "] " + "Sistema em uso");
+	            marcar.write("[" + LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)) + "] " + "Login");
 
 	            // Metodo newLine da classe BufferedWriter que adiciona uma nova linha 
 	            marcar.newLine();
@@ -98,7 +98,7 @@ package br.com.simplexagro.Simplex_Agro.domain;
 
 	    }
 
-	    public void lerArquivos(File arquivo) throws FileNotFoundException {
+	    public static void lerArquivos(File arquivo) throws FileNotFoundException {
 
 	        FileReader leitura;
 

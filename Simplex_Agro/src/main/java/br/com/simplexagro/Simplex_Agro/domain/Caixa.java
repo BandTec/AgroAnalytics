@@ -1,28 +1,33 @@
 package br.com.simplexagro.Simplex_Agro.domain;
 
-import java.util.ArrayList;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
 public class Caixa {
 	
-	private int idCaixa;
+	@Id
+	@GeneratedValue
+	private long id;
 	
+	@JsonProperty
 	private double preco;
 	
+	@JsonProperty
 	private double quantProdutos;
 	
+	@JsonProperty
+	@Embedded
 	private Planta planta;
 
-	public int getIdCaixa() {
+	public long getIdCaixa() {
 		
-		return idCaixa;
+		return id;
 		
-	}
-
-	private void geradorIdCaixa(int idCaixa) {
-		
-		this.idCaixa = idCaixa;
-	
-		return;
 	}
 
 	public double getPreco() {

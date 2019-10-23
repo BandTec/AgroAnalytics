@@ -1,18 +1,33 @@
 package br.com.simplexagro.Simplex_Agro.domain;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Embeddable
 public class Planta {
 	
-	private int id;
+	@Id
+	@GeneratedValue
+	private long id;
 	
+	@JsonProperty
 	private String nome;
 	
+	@JsonProperty
 	private String tipo;
 	
+	@JsonProperty
 	private int cicloEmDiasMaturacao;
 
+	@JsonProperty
 	private double preco;
 	
-	public int getIdPlanta() {
+	public long getId() {
 		
 		return id;
 		

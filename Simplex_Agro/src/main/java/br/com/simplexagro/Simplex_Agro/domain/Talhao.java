@@ -1,16 +1,34 @@
 package br.com.simplexagro.Simplex_Agro.domain;
 
+import java.util.ArrayList;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
 public class Talhao {
 	
-	private int id;
+	@Id
+	@GeneratedValue
+	private long id;
 
+	@JsonProperty
 	private boolean disponibilidade; 
 	
+	@JsonProperty
 	private String nome;
 	
+	@JsonProperty
 	private double area;
+	
+	@OneToMany
+	private ArrayList<Planta> planta; 
 
-	public int getId_talhao() {
+	public long getId() {
 		
 		return id;
 		

@@ -3,21 +3,33 @@ package br.com.simplexagro.Simplex_Agro.domain;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
 public class Plantacao {
 	
-	private int id;
+	@Id
+	@GeneratedValue
+	private long id;
 	
+	@JsonProperty
 	private Date dataInicio;
 
+	@JsonProperty
 	private Date dataFim;
 	
+	@JsonProperty
 	private int cicloEmDias;
 	
 	private ArrayList<Planta> planta;
 
 	private ArrayList<Talhao> talhao;
 
-	public int getId() {
+	public long getId() {
 		
 		return id;
 		
