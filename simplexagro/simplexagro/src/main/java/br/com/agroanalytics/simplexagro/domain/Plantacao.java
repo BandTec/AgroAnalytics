@@ -15,7 +15,7 @@ public class Plantacao {
 	@Id
 	@GeneratedValue
 	@JsonProperty
-	private Long id;
+	private Long idPlantacao;
 	
 	@JsonProperty
 	private Date dataInicio;
@@ -115,7 +115,7 @@ public class Plantacao {
 
 	public long getId() {
 	
-		return id;
+		return idPlantacao;
 	
 	}
 	

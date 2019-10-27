@@ -12,7 +12,7 @@ public class Cultura {
 	@Id
 	@GeneratedValue
 	@JsonProperty
-	private Long id;
+	private Long idCultura;
 
 	@JsonProperty
 	private String nome;
@@ -41,7 +41,7 @@ public class Cultura {
 
 	public Long getId() {
 
-		return id;
+		return idCultura;
 
 	}
 

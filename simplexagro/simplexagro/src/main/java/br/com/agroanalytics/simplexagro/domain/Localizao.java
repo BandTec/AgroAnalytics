@@ -13,7 +13,7 @@ public class Localizao {
 	
 	@Id
 	@GeneratedValue
-	private Long id; 
+	private Long idLocalizao; 
 	
 	@JsonProperty
 	private String cep;
@@ -57,7 +57,7 @@ public class Localizao {
 
 	public Long getId() {
 		
-		return id;
+		return idLocalizao;
 		
 	}
 

@@ -14,7 +14,7 @@ public class Safra {
 	@Id
 	@GeneratedValue
 	@JsonProperty
-	private int id;
+	private int idSafra;
 	
 	@JsonProperty
 	private int quantPlantEnvolvidos;
@@ -30,7 +30,7 @@ public class Safra {
 
 	public int getId() {
 		
-		return id;
+		return idSafra;
 		
 	}
 

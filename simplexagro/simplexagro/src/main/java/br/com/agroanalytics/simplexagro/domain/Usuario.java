@@ -11,7 +11,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idUsuario;
 	
 	private String nome;
 	
@@ -27,7 +27,7 @@ public class Usuario {
 	
 	public Long getId() {
 		
-		return id;
+		return idUsuario;
 		
 	}
 

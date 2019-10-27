@@ -12,7 +12,7 @@ public class Talhao {
 	@Id
 	@GeneratedValue
 	@JsonProperty
-	private int id;
+	private int idTalhao;
 
 	@JsonProperty
 	private boolean disponibilidade; 
@@ -25,15 +25,8 @@ public class Talhao {
 
 	public int getId_talhao() {
 		
-		return id;
+		return idTalhao;
 		
-	}
-
-	private void geradorIdTalhao(int idTalhao) {
-		
-		this.id = idTalhao;
-		
-		return;
 	}
 
 	public boolean isDisponibilidade() {
