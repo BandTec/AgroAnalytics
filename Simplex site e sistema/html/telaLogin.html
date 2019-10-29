@@ -29,20 +29,20 @@
 
             <div class="wrap-input100 validate-input" data-validate="E-mail">
               <span class="label-input100">E-mail</span>
-              <input class="input100" type="text" name="username">
+              <input class="input100" type="text" name="username" id="email">
               <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate = "Digite seu email: ex@abc.xyz">
                 <span class="label-input100">Senha</span>
-                <input class="input100" type="password" name="senha">
+                <input class="input100" type="password" name="senha" id="senhas">
                 <span class="focus-input100"></span>
             </div>
 
             <div class="container-login100-form-btn">
                 <div class="wrap-login100-form-btn">
                   <div class="login100-form-bgbtn"></div>
-                  <button class="login100-form-btn" id="btn-submit" type="submit">
+                  <button class="login100-form-btn" id="btn-submit" type="submit" onclick="validatePassword()">
                     Entrar
                   </button>
                   <p id="result"></p>
@@ -61,9 +61,21 @@
             
           </form>
           <span id="span_mensagem" style="display: none;">Login ou senha inválida</span>
-        </div>
-    </div>
-  </div>
+    
+
+  <script>
+  var login = document.getElementById("email")
+  , senha = document.getElementById("senhas");
+
+function validatePassword(){
+  if (login.value == "" || login.value.indexOf('@') == -1 || login.value.indexOf('.')== -1)  {
+    alert("coloque o email correto!");
+  } else if(senha.value =="" || senha.value.length < 6) {
+    alert('senha incorreta');
+  }
+}
+
+  </script>
     
 </body>
 </html>
