@@ -1,176 +1,248 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Sidebar Indicators</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Signika:400,600'>
-<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Signika:400,600'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
-<!-- Informações do menu -->
-<header>
-  
-  <span class="menu"><i class="material-icons">menu</i></span>
-  
-  <form class="Barra_pesquisa">
-    <!-- Default input -->
-    <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-    <button class="botao_barra" type="submit">
-      <i class="busca"></i>
-    </button>
+  <!-- Informações do menu -->
+  <header>
 
-  </form>
-</header>
-<section class="main">
-  <aside class="keep">
-    <ul>
-      <li>
-        <a href="">
-          <span><i class="material-icons">location_on</i></span>
-           Estoque
-        </a>
-      </li>      
-      <li>
-        <a href="">
-          <span><i class="material-icons">stay_current_portrait</i></span>
-           Financeiro
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <span><i class="material-icons">event</i></span>
-           Insumo
-        </a>
-      </li>      
-      <li>
-        <a href="">
-          <span><i class="material-icons">local_offer</i></span>
-           Safra
-        </a>
-      </li>
-      
-    </ul>
-  </aside>
+    <span class="menu"><i class="material-icons">menu</i></span>
 
-  <!--(<article>)Tag que armazena o quadro amarelo e as listas-->
-  <article>
+    <form class="Barra_pesquisa">
+      <!-- Barra de pesquisa -->
+      <form action=" " method="post">
+
+        <input class="barra" type="search" id="busca" name="">
+        <button class="botao_pesquisa" type="submit" id="barra"><img src="lupa.png" id="btnBusca"
+            alt="Buscar" /></button>
+
+      </form>
+
+    </form>
+  </header>
+  <section class="main">
+    <aside class="keep">
+      <ul>
+        <li>
+          <a href="">
+            <span><i class="material-icons">location_on</i></span>
+            Estoque
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span><i class="material-icons">stay_current_portrait</i></span>
+            Financeiro
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span><i class="material-icons">event</i></span>
+            Insumo
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span><i class="material-icons">local_offer</i></span>
+            Safra
+          </a>
+        </li>
+
+      </ul>
+    </aside>
+
+    <!--(<article>)Tag que armazena o quadro amarelo e as listas-->
+    <article>
       <center>
-          <!--Tbela/lista de cultura-->
-        <br><h2>Cultura</h2><br>
-            <table class="tg" style="undefined; table-layout: fixed; width: 1200px">
-            <colgroup>
+        <!--Tbela/lista de cultura-->
+        <br>
+        <h2>Cultura</h2><br>
+
+        <table class="tg" style="undefined;table-layout: fixed; width: 1124px">
+          <colgroup>
+            <col style="width: 160px">
+            <col style="width: 380px">
+            <col style="width: 380px">
+            <col style="width: 291px">
+          </colgroup>
+          <tr>
+            <th class="tg-n9g5">Código:</th>
+            <th class="tg-n9g5">Nome:</th>
+            <th class="tg-n9g5">Tipo:</th>
+            <th class="tg-n9g5">Disponibilidade:</th>
+          </tr>
+        </table>
+        <form action="#" id="nome" class="form-contact" method="post" tabindex="1">
+          <div>
+
+
+            <input type="text" class="form-contact-input" name="nome" style="width: 12%; " placeholder="Nome"
+              required />
+
+            <input type="email" class="form-contact-input" name="email" style="width:30%" height="10%"
+              placeholder="Email" required />
+
+            <input type="email" class="form-contact-input" name="email" style="width: 30%" height="10%"
+              placeholder="Email" required />
+
+            <input type="email" class="form-contact-input" name="email" style="width: 20%" height="10%"
+              placeholder="Email" required />
+
+            <img src="../img/add.gif" style="cursor: pointer;" onclick="duplicarCampos();">
+            <img src="../img/cross.gif" style="cursor: pointer;" onclick="removerCampos(this);">
+
+          </div>
+        </form>
+        <div id="origem" align="center">
+
+        </div>
+
+        <div id="destino">
+        </div>
+
+        </div>
+
+        <br>
+
+        <h2>Talhão</h2><br>
+        <table class="tg" style="undefined;table-layout: fixed; width: 1124px">
+          <colgroup>
             <col style="width: 151px">
             <col style="width: 401px">
-            <col style="width: 401px">
+            <col style="width: 200px">
+            <col style="width: 201px">
             <col style="width: 247px">
-            </colgroup>
-              <tr>
-                <th class="tg-n9g5">Código:</th>
-                <th class="tg-n9g5">Nome:</th>
-                <th class="tg-n9g5">Tipo:</th>
-                <th class="tg-n9g5">Maturação:</th>
-              </tr>
-              <tr>
-                <td class="tg-14gg"></td>
-                <td class="tg-14gg"></td>
-                <td class="tg-14gg"></td>
-                <td class="tg-14gg"></td>
-              </tr>
-            </table>
-            <br>
+          </colgroup>
+          <tr>
+            <th class="tg-n9g5">Código:</th>
+            <th class="tg-n9g5">Nome:</th>
+            <th class="tg-n9g5">Data:</th>
+            <th class="tg-n9g5">Area:</th>
+            <th class="tg-n9g5">Disponibilidade:</th>
+          </tr>
+          <tr>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+          </tr>
 
-            <!--Linha vazia da tabela/lista de cultura -->
-            <table class="tg1">
-            <tr>
-            <colgroup>
-            <col style="width: 151px">
-            <col style="width: 401px">
-            <col style="width: 401px">
-            <col style="width: 247px">
-            </colgroup>
-              <th class="tg-n9g5"></th>
-                <th class="tg-n9g5"></th>
-                <th class="tg-n9g5"></th>
-                <th class="tg-n9g5"></th>
-            </tr>
-            </table>
-
-            <!--Tabela/lista de safra-->
-            <br><h2>Safra</h2><br>
-                <table class="tg" style="undefined;table-layout: fixed; width: 1124px">
-                <colgroup>
-                <col style="width: 151px">
-                <col style="width: 401px">
-                <col style="width: 200px">
-                <col style="width: 201px">
-                <col style="width: 247px">
-                </colgroup>
-                  <tr>
-                    <th class="tg-n9g5">Código:</th>
-                    <th class="tg-n9g5">Nome:</th>
-                    <th class="tg-n9g5">Data:</th>
-                    <th class="tg-n9g5">Area:</th>
-                    <th class="tg-n9g5">Disponibilidade:</th>
-                  </tr>
-                  <tr>
-                    <td class="tg-14gg"></td>
-                    <td class="tg-14gg"></td>
-                    <td class="tg-14gg"></td>
-                    <td class="tg-14gg"></td>
-                    <td class="tg-14gg"></td>
-                  </tr>
-                </table>
-                <br>
-                <!--Linhas vazias tabela/lista Safra-->
-                  <table class="tg" style="undefined;table-layout: fixed; width: 1153px">
-                  <colgroup>
-                  <col style="width: 151px">
-                  <col style="width: 401px">
-                  <col style="width: 200px">
-                  <col style="width: 201px">
-                  <col style="width: 247px">
-                  </colgroup>
-                    <tr>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                    </tr>
-                    <tr>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                    </tr>
-                    <tr>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                    </tr>
-                    <tr>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                      <td class="tg-14gg"></td>
-                    </tr>
-                  </table>
-                  <br>
-                  <button class="botao_cancela">Cancelar</button>
-                  <button class="botao_salva">Salvar</button>
+        
+          <div id="origem" align="center">
             
+
+          </div>
+
+          <div id="destino">
+          </div>
+
+          </div>
+
+          
+
+          <!--Linha vazia da tabela/lista de cultura 
+        <table class="tg1">
+          <tr>
+            <colgroup>
+              <col style="width: 151px">
+              <col style="width: 401px">
+              <col style="width: 401px">
+              <col style="width: 247px">
+            </colgroup>
+            <th class="tg-n9g5"></th>
+            <th class="tg-n9g5"></th>
+            <th class="tg-n9g5"></th>
+            <th class="tg-n9g5"></th>
+          </tr>
+        </table> -->
+
+          <!--Tabela/lista de safra
+        <br>
+        <h2>Talhão</h2><br>
+        <table class="tg" style="undefined;table-layout: fixed; width: 1124px">
+          <colgroup>
+            <col style="width: 151px">
+            <col style="width: 401px">
+            <col style="width: 200px">
+            <col style="width: 201px">
+            <col style="width: 247px">
+          </colgroup>
+          <tr>
+            <th class="tg-n9g5">Código:</th>
+            <th class="tg-n9g5">Nome:</th>
+            <th class="tg-n9g5">Data:</th>
+            <th class="tg-n9g5">Area:</th>
+            <th class="tg-n9g5">Disponibilidade:</th>
+          </tr>
+          <tr>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+          </tr>
+        </table>-->
+          <!--Linhas vazias tabela/lista Safra
+        <table class="tg" style="undefined;table-layout: fixed; width: 1153px">
+          <colgroup>
+            <col style="width: 151px">
+            <col style="width: 401px">
+            <col style="width: 200px">
+            <col style="width: 201px">
+            <col style="width: 247px">
+          </colgroup>
+          <tr>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+          </tr>
+          <tr>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+          </tr>
+          <tr>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+          </tr>
+          <tr>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+            <td class="tg-14gg"></td>
+          </tr>
+        </table>-->
+    
+
       </center>
 
+
     
-  </article>
-</section>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./script.js"></script>
+  </section>
+
+  
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="./script.js"></script>
 
 </body>
+
 </html>
