@@ -1,6 +1,5 @@
 package br.com.teste.domain;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Usuario {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long idUsuario;
 
 	@JsonProperty
@@ -23,13 +22,10 @@ public class Usuario {
 	@JsonProperty
 	private  String cpf;
 	
-	@JsonProperty
-	@ManyToOne
-	@JoinColumn(name = "objetivoId")
-	private Localizacao localizao;
 	
-	@JsonProperty
-	private Telefone telefones;
+	
+	//@JsonProperty
+	//private Telefone telefones;
 
 	@JsonProperty
 	private String login;
@@ -53,21 +49,6 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public Localizacao getLocalizao() {
-		return localizao;
-	}
-
-	public void setLocalizao(Localizacao localizao) {
-		this.localizao = localizao;
-	}
-
-	public Telefone getTelefones() {
-		return telefones;
-	}
-
-	public void setTelefones(Telefone telefones) {
-		this.telefones = telefones;
-	}
 
 	public String getLogin() {
 		return login;
