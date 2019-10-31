@@ -1,9 +1,17 @@
+
+
 .menu-navigation-icons {
     height: 657px;
     width: 100%px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    
+ 
+    background: #d4e851;
+    background: -webkit-linear-gradient(bottom, rgba(179, 255, 0, 0.288), rgba(211, 208, 32, 0.877), rgb(179, 255, 0, 0.288));
+    background: -o-linear-gradient(bottom, rgb(179, 255, 0, 0.288), rgba(235, 232, 87, 0.808), rgb(179, 255, 0, 0.288));
+    background: -moz-linear-gradient(bottom, rgb(179, 255, 0, 0.288),rgb(211, 208, 32, 0.877), rgb(179, 255, 0, 0.288));
+    background: linear-gradient(bottom, rgb(179, 255, 0, 0.288), rgba(235, 232, 87, 0.808), rgb(179, 255, 0, 0.288));
+    opacity: 0.8;
 }
 
 .imagemfundo{
@@ -11,11 +19,13 @@
     background-image: url('../imagens/2674659.png');
 	background-repeat: no-repeat;
     background-size: cover;
+   
 }
+
 
 .menu-navigation-icons a {
     display: inline-block;
-    color: #C0C0C0;
+    color: rgb(255, 255, 255);
     background-color: #232526;
     font-size: 90px;
     font-weight: bold;
@@ -47,19 +57,20 @@
 
 
 /* Menu colors */
-.menu-navigation-icons a.menu-blue		{background: #1f6616;
+.menu-navigation-icons a.menu-blue		{ background: #1f6616;
     background: -webkit-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(1, 70, 7));
     background: -o-linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
     background: -moz-linear-gradient(bottom, rgb(8, 58, 4),rgb(9, 68, 4, 0.45), rgb(1, 70, 7));
-    background: linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21)); 
+    background: linear-gradient(bottom, rgb(8, 58, 4), rgba(9, 68, 4, 0.45), rgb(3, 231, 21));
     position: absolute;
     width: 270px;
     height: 250px;
     left: 92px;
     top: 225px;
+    opacity: 10.1;
 
 }
-.menu-navigation-icons a.menu-blue i	{ color: #B0C4DE;
+.menu-navigation-icons a.menu-blue i	{ color: rgb(255, 255, 255);
    
 }
 
@@ -76,7 +87,7 @@
     left: 390px;
     top: 225px;
 }
-.menu-navigation-icons a.menu-green i	{ color: #C0C0C0; 
+.menu-navigation-icons a.menu-green i	{ color: rgb(255, 255, 255); 
    
 
 }
@@ -92,7 +103,7 @@
     left: 688px;
     top: 225px;
 }
-.menu-navigation-icons a.menu-yellow i	{ color: #C0C0C0;
+.menu-navigation-icons a.menu-yellow i	{ color: rgb(255, 255, 255);
     
 }
 
@@ -107,7 +118,7 @@
     left: 990px;
     top: 225px;
 }
-.menu-navigation-icons a.menu-red i		{ color: #C0C0C0; }
+.menu-navigation-icons a.menu-red i		{ color: rgb(255, 255, 255) }
 
 
 
