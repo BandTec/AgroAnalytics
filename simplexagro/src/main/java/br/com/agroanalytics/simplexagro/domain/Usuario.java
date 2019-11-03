@@ -1,13 +1,13 @@
 package br.com.agroanalytics.simplexagro.domain;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,6 +16,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonProperty
 	private Long id;
 	
 	@JsonProperty
@@ -27,6 +28,14 @@ public class Usuario {
 	@JsonProperty
 	private String dataNascimento;
 	
+	@JsonProperty
+	@Embedded
+	Telefone telefone;
+	
+	@JsonProperty
+	@Embedded
+	Localizacao localizacao;
+	
 	public Usuario() {
 	
 	}
@@ -37,14 +46,6 @@ public class Usuario {
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 		
-	}
-
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -63,7 +64,6 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-
 	public String getDataNascimento() {
 		return dataNascimento;
 	}
@@ -71,5 +71,28 @@ public class Usuario {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+
+	public Telefone getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(Telefone telefone) {
+		this.telefone = telefone;
+	}
+
+	public Localizacao getLocalizacao() {
+		return localizacao;
+	}
+
+	public void setLocalizacao(Localizacao localizacao) {
+		this.localizacao = localizacao;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	
+
 	
 }

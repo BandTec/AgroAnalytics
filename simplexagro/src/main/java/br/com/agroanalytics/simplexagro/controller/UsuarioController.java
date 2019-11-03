@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.agroanalytics.simplexagro.domain.Localizacao;
+import br.com.agroanalytics.simplexagro.domain.Telefone;
 import br.com.agroanalytics.simplexagro.domain.Usuario;
+
 import br.com.agroanalytics.simplexagro.repository.UsuarioRepository;
 
 @RestController
@@ -28,12 +31,13 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
+
 	@PostMapping
 	@Transactional
 	public ResponseEntity criarUsuario(@RequestBody @Valid Usuario usuario) {
 
 		usuarioRepository.save(usuario);
-
+		
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
 
 	}
@@ -66,26 +70,25 @@ public class UsuarioController {
 
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity atualizarUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario) {
-
-		if (usuarioRepository.existsById(id)) {
-			
-			//Usuario user = usuarioRepository.getOne(id);
-
-			usuarioRepository.atualizarUsuarios(usuario.getNome(), usuario.getCpf(), usuario.getDataNascimento(), id);
-
-			// usuarioRepository.deleteById(id);
-
-			// usuarioRepository.save(usuario);
-
-			return ResponseEntity.ok(usuario);
-
-		} else {
-
-			return ResponseEntity.notFound().build();
-
+	@PutMapping
+	public ResponseEntity atualizarUsuario(@RequestBody Usuario usuario) {
+		
+		if(usuario.getId() == null ) {
+			criarUsuario(usuario);
 		}
+		usuarioRepository.save(usuario);
+		return ResponseEntity.ok(usuario);
+//		if (usuarioRepository.existsById(id)) {
+//			
+//			usuarioRepository.atualizarUsuarios(usuario.getNome(), usuario.getCpf(), usuario.getDataNascimento(), id);
+//
+//			return ResponseEntity.ok(usuario);
+//
+//		} else {
+//
+//			return ResponseEntity.notFound().build();
+//
+//		}
 
 	}
 
