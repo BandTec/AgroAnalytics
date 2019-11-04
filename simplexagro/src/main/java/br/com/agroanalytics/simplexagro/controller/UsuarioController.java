@@ -71,7 +71,7 @@ public class UsuarioController {
 	}
 
 	@PutMapping
-	public ResponseEntity atualizarUsuario(@RequestBody Usuario usuario) {
+	public ResponseEntity atualizarUsuario(@RequestBody @Valid Usuario usuario) {
 		
 		if(usuario.getId() == null ) {
 			criarUsuario(usuario);

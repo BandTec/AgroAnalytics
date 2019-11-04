@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Embeddable
 public class Localizacao {
-
-
+	
 	@JsonProperty
 	private long numeroCasa;
 	

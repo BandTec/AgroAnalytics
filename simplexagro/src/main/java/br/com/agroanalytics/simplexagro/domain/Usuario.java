@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.istack.NotNull;
 
 @Entity
 public class Usuario {
@@ -17,12 +19,15 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty
+	@NotNull  @NotFound  
 	private Long id;
 	
 	@JsonProperty
+	@NotNull  @NotFound @NotEmpty  @Length(max = 100)
 	private String nome;
 	
 	@JsonProperty
+	@NotNull  @NotFound @NotEmpty  @Length(max = 11)
 	private String cpf;
 	
 	@JsonProperty
@@ -30,11 +35,15 @@ public class Usuario {
 	
 	@JsonProperty
 	@Embedded
-	Telefone telefone;
+	private Telefone telefone;
 	
 	@JsonProperty
 	@Embedded
-	Localizacao localizacao;
+	private Localizacao localizacao;
+	
+	@JsonProperty
+	@Embedded
+	private Login login;
 	
 	public Usuario() {
 	
@@ -91,6 +100,16 @@ public class Usuario {
 	public Long getId() {
 		return id;
 	}
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
+	
 
 	
 
