@@ -42,6 +42,7 @@ public class Usuario {
 	private Localizacao localizacao;
 	
 	@JsonProperty
+	@NotNull  @NotFound 
 	@Embedded
 	private Login login;
 	

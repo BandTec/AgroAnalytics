@@ -65,7 +65,7 @@ public class UsuarioController {
 
 		} else {
 
-			return ResponseEntity.notFound().build();
+			return ResponseEntity.noContent().build();
 		}
 
 	}
@@ -73,10 +73,14 @@ public class UsuarioController {
 	@PutMapping
 	public ResponseEntity atualizarUsuario(@RequestBody @Valid Usuario usuario) {
 		
-		if(usuario.getId() == null ) {
-			criarUsuario(usuario);
+		if(usuario.getId() == null) {
+			
+			return ResponseEntity.noContent().build();
+			
+			//criarUsuario(usuario);
 		}
 		usuarioRepository.save(usuario);
+		
 		return ResponseEntity.ok(usuario);
 //		if (usuarioRepository.existsById(id)) {
 //			

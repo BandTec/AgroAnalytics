@@ -7,15 +7,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.NotFound;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.istack.NotNull;
 
 @Embeddable
 public class Login {
 
 	@JsonProperty
+	@NotNull  @NotFound 
 	private String email;
 	
 	@JsonProperty
+	@NotNull  @NotFound 
 	private String senha;
 	
 	public String getEmail() {
