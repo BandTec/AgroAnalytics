@@ -19,35 +19,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agroanalytics.simplexagro.domain.Cultura;
-import br.com.agroanalytics.simplexagro.domain.Usuario;
-import br.com.agroanalytics.simplexagro.repository.CulturaRepository;
-import br.com.agroanalytics.simplexagro.repository.UsuarioRepository;
+import br.com.agroanalytics.simplexagro.domain.Talhao;
+import br.com.agroanalytics.simplexagro.repository.TalhaoRepository;
 
 @RestController
-@RequestMapping("/cultura")
-public class CulturaController {
-
+@RequestMapping("/talhao")
+public class TalhaoController {
+	
 	@Autowired
-	private CulturaRepository culturaRepository;
+	private TalhaoRepository talhaoRepository;
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity criarCultura(@RequestBody Cultura cultura) {
+	public ResponseEntity criarTalhao(@RequestBody Talhao talhao) {
 
-		culturaRepository.save(cultura);
+		talhaoRepository.save(talhao);
 
-		return ResponseEntity.status(HttpStatus.CREATED).body(cultura);
+		return ResponseEntity.status(HttpStatus.CREATED).body(talhao);
 
 	}
 
-	@GetMapping("/todas-culturas")
-	public ResponseEntity<List<Cultura>> buscarTodasCulturas() {
+	@GetMapping("/todos-talhoes")
+	public ResponseEntity<List<Talhao>> buscarTodosTalhoes() {
 
-		if (culturaRepository.count() > 0) {
+		if (talhaoRepository.count() > 0) {
 
-			List<Cultura> cultura = culturaRepository.findAll();
+			List<Talhao> talhao = talhaoRepository.findAll();
 
-			return ResponseEntity.ok(cultura);
+			return ResponseEntity.ok().body(talhao);
 
 		}
 		
@@ -58,11 +57,11 @@ public class CulturaController {
 	@GetMapping("/{id}")
 	public ResponseEntity buscarCultura(@PathVariable("id") Long id) {
 
-		Optional<Cultura> cultura = culturaRepository.findById(id);
+		Optional<Talhao> talhao = talhaoRepository.findById(id);
 
-		if (cultura.isPresent()) {
+		if (talhao.isPresent()) {
 
-			return ResponseEntity.ok().body(cultura);
+			return ResponseEntity.ok().body(talhao);
 
 		}
 		
@@ -71,17 +70,17 @@ public class CulturaController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity atualizarCultura(@RequestBody @Valid Cultura cultura) {
+	public ResponseEntity atualizarCultura(@RequestBody @Valid Talhao talhao) {
 		
-		if(cultura.getId() == null) {
+		if(talhao.getId() == null) {
 			
 			return ResponseEntity.noContent().build();
 		
 		}
 		
-		culturaRepository.save(cultura);
-		
-		return ResponseEntity.ok(cultura);
+		talhaoRepository.save(talhao);
+
+		return ResponseEntity.ok(talhao);
 
 	}
 
@@ -89,11 +88,12 @@ public class CulturaController {
 	@Transactional
 	public ResponseEntity excluirCultura(@PathVariable("id") Long id) {
 
-		if (culturaRepository.existsById(id)) {
+		if (talhaoRepository.existsById(id)) {
 
-			culturaRepository.deleteById(id);
+			talhaoRepository.deleteById(id);
 
 			return ResponseEntity.ok().build();
+			
 		} else {
 
 			return ResponseEntity.notFound().build();
@@ -101,13 +101,13 @@ public class CulturaController {
 
 	}
 	
-	@DeleteMapping("/todas-culturas")
+	@DeleteMapping("/todos-talhoes")
 	@Transactional
-	public ResponseEntity excluirTodasCulturas() {
+	public ResponseEntity excluirTodosTalhoes() {
 		
-		if (culturaRepository.count() > 0) {
+		if (talhaoRepository.count() > 0) {
 			
-			culturaRepository.deleteAll();
+			talhaoRepository.deleteAll();
 
 			return ResponseEntity.ok().build();
 		}
@@ -117,6 +117,5 @@ public class CulturaController {
 		
 	}
 
-}
 
-	
+}

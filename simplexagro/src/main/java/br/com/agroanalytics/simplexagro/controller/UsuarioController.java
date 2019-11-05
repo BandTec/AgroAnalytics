@@ -98,7 +98,7 @@ public class UsuarioController {
 
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity excluir(@PathVariable("id") Long id) {
+	public ResponseEntity excluirUsuario(@PathVariable("id") Long id) {
 
 		if (usuarioRepository.existsById(id)) {
 
