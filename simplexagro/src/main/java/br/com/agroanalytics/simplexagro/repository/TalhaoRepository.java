@@ -20,6 +20,5 @@ public interface TalhaoRepository extends JpaRepository<Talhao, Long> {
 	@Query("update Talhao t set t.disponibilidade = :disponibilidade where t.id = :id")
 	public void mudarEstado(@Param("disponibilidade") boolean disponibilidade, @Param("id")Long id);
 
-//	public boolean findByDisponibilidade(Long id);
 
 }

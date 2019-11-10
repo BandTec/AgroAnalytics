@@ -50,12 +50,8 @@ public class PlantacaoController {
 		Optional<Cultura> cultivo = culturaRepository.findById(plantacao.getCultura().getId());
 
 		Optional<Talhao> canteiro = talhaoRepository.findById(plantacao.getTalhao().getId());
-		
-		//Optional<Plantacao> lavoura = plantacaoRepository.findById(plantacao.getId());
-		
-		//boolean disponibilidade = talhaoRepository.findByDisponibilidade(plantacao.getTalhao().getId());
-		
-		if (cultivo.isPresent() && canteiro.isPresent()) {
+	                
+		if (cultivo.isPresent() && canteiro.isPresent() &&  canteiro.get().getDisponibilidade() == true) {
 			
 			talhaoRepository.mudarEstado(false, plantacao.getTalhao().getId());
 			
@@ -65,36 +61,34 @@ public class PlantacaoController {
 
 		} else {
 
-			System.out.println("Para criar a plantação você deve já ter cadastrado a cultura e o talhao, e o talhão não pode estar envolvido em nenhuma outra plantação!");
-
-			return ResponseEntity.noContent().build();
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Para criar a plantação você deve já ter cadastrado a cultura e o talhao, e o talhão não pode estar envolvido em nenhuma outra plantação!");
 
 		} 
 
 	}
 	
 
-//	@PostMapping("/colheita")
-//	@Transactional
-//	public ResponseEntity dessassociarPlantacao(@RequestBody Plantacao plantacao) {
-//		
-//		Optional<Plantacao> lavoura = plantacaoRepository.findById(plantacao.getId());
-//	
-//		if (lavoura.isPresent()) {
-//			
-//			talhaoRepository.mudarEstado(true, plantacao.getTalhao().getId());
-//			
-//			return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
-//
-//		} else {
-//
-//			System.out.println("Para dessassociar uma plantação você deve já ter cadastrado uma plantacao.");
-//
-//			return ResponseEntity.noContent().build();
-//
-//		} 
-//
-//	}
+	@PostMapping("/colheitas/{id}")
+	@Transactional
+	public ResponseEntity dessassociarPlantacao(@PathVariable Long id) {
+		
+		Optional<Plantacao> lavoura = plantacaoRepository.findById(id);
+		
+		if (lavoura.isPresent()) {
+			
+			talhaoRepository.mudarEstado(true, id);
+			
+			return ResponseEntity.status(HttpStatus.CREATED).body("Talhão liberado");
+
+		} else {
+
+			System.out.println("Para dessassociar uma plantação você deve já ter cadastrado uma plantacao.");
+
+			return ResponseEntity.noContent().build();
+
+		} 
+
+	}
 
 
 	@GetMapping
