@@ -1,10 +1,15 @@
 package br.com.agroanalytics.simplexagro.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -31,7 +36,12 @@ public class Insumo {
 	
 	@JsonProperty
 	private double quantRecomendada;
-
+//	
+//	@JsonProperty
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "id_plantacao")
+//	private Plantacao plantacao;
+	
 	public String getNome() {
 		return nome;
 	}

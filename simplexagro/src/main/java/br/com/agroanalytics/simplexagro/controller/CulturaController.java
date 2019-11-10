@@ -19,16 +19,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agroanalytics.simplexagro.domain.Cultura;
+import br.com.agroanalytics.simplexagro.domain.Plantacao;
 import br.com.agroanalytics.simplexagro.domain.Usuario;
 import br.com.agroanalytics.simplexagro.repository.CulturaRepository;
+import br.com.agroanalytics.simplexagro.repository.PlantacaoRepository;
 import br.com.agroanalytics.simplexagro.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping("/cultura")
+@RequestMapping("/culturas")
 public class CulturaController {
 
 	@Autowired
 	private CulturaRepository culturaRepository;
+
+	@Autowired
+	private PlantacaoRepository plantacaoRepository;
 
 	@PostMapping
 	@Transactional
@@ -40,7 +45,22 @@ public class CulturaController {
 
 	}
 
-	@GetMapping("/todas-culturas")
+	@PostMapping("/estaMerda")
+	public ResponseEntity<List<Plantacao>> buscarPlantacoesComCultura(@RequestBody Cultura cultura) {
+
+		List<Plantacao> plantacao = plantacaoRepository.findByCultura(cultura);
+
+		if (plantacao == null) {
+
+			return ResponseEntity.noContent().build();
+
+		}
+
+		return ResponseEntity.ok(plantacao);
+
+	}
+
+	@GetMapping
 	public ResponseEntity<List<Cultura>> buscarTodasCulturas() {
 
 		if (culturaRepository.count() > 0) {
@@ -50,7 +70,7 @@ public class CulturaController {
 			return ResponseEntity.ok(cultura);
 
 		}
-		
+
 		return ResponseEntity.noContent().build();
 
 	}
@@ -65,22 +85,22 @@ public class CulturaController {
 			return ResponseEntity.ok().body(cultura);
 
 		}
-		
-			return ResponseEntity.noContent().build();
+
+		return ResponseEntity.noContent().build();
 
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity atualizarCultura(@RequestBody @Valid Cultura cultura) {
-		
-		if(cultura.getId() == null) {
-			
+	public ResponseEntity atualizarCultura(@PathVariable("id") Long id, @RequestBody Cultura cultura) {
+
+		if (culturaRepository.findById(id) == null) {
+
 			return ResponseEntity.noContent().build();
-		
+
 		}
-		
+
 		culturaRepository.save(cultura);
-		
+
 		return ResponseEntity.ok(cultura);
 
 	}
@@ -100,23 +120,20 @@ public class CulturaController {
 		}
 
 	}
-	
-	@DeleteMapping("/todas-culturas")
+
+	@DeleteMapping
 	@Transactional
 	public ResponseEntity excluirTodasCulturas() {
-		
+
 		if (culturaRepository.count() > 0) {
-			
+
 			culturaRepository.deleteAll();
 
 			return ResponseEntity.ok().build();
 		}
-		
+
 		return ResponseEntity.notFound().build();
-		
-		
+
 	}
 
 }
-
-	

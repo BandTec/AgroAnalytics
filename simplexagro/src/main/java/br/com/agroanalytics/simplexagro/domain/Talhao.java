@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -27,10 +29,9 @@ public class Talhao {
 	
 	}
 
-	public Talhao(String nome, boolean disponibilidade, String dataCriacao) {
+	public Talhao(String nome) {
 		this.nome = nome;
-		this.disponibilidade = disponibilidade;
-		this.dataCriacao = dataCriacao;
+		this.disponibilidade = true;
 	}
 
 	public String getNome() {
@@ -60,8 +61,5 @@ public class Talhao {
 	public Long getId() {
 		return id;
 	}
-	
-	
-	
-	
+
 }

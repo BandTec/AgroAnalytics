@@ -25,7 +25,7 @@ import br.com.agroanalytics.simplexagro.repository.TalhaoRepository;
 @RestController
 @RequestMapping("/talhao")
 public class TalhaoController {
-	
+
 	@Autowired
 	private TalhaoRepository talhaoRepository;
 
@@ -39,7 +39,7 @@ public class TalhaoController {
 
 	}
 
-	@GetMapping("/todos-talhoes")
+	@GetMapping
 	public ResponseEntity<List<Talhao>> buscarTodosTalhoes() {
 
 		if (talhaoRepository.count() > 0) {
@@ -49,7 +49,7 @@ public class TalhaoController {
 			return ResponseEntity.ok().body(talhao);
 
 		}
-		
+
 		return ResponseEntity.noContent().build();
 
 	}
@@ -64,22 +64,23 @@ public class TalhaoController {
 			return ResponseEntity.ok().body(talhao);
 
 		}
-		
-			return ResponseEntity.noContent().build();
+
+		return ResponseEntity.noContent().build();
 
 	}
 
+
 	@PutMapping("/{id}")
-	public ResponseEntity atualizarCultura(@RequestBody @Valid Talhao talhao) {
+	public ResponseEntity atualizarCultura(@PathVariable("id") Long id, @RequestBody @Valid Talhao talhao) {
 		
-		if(talhao.getId() == null) {
+		if(talhaoRepository.findById(id) == null) {
 			
 			return ResponseEntity.noContent().build();
 		
 		}
 		
 		talhaoRepository.save(talhao);
-
+		
 		return ResponseEntity.ok(talhao);
 
 	}
@@ -93,29 +94,27 @@ public class TalhaoController {
 			talhaoRepository.deleteById(id);
 
 			return ResponseEntity.ok().build();
-			
+
 		} else {
 
 			return ResponseEntity.notFound().build();
 		}
 
 	}
-	
-	@DeleteMapping("/todos-talhoes")
+
+	@DeleteMapping
 	@Transactional
 	public ResponseEntity excluirTodosTalhoes() {
-		
+
 		if (talhaoRepository.count() > 0) {
-			
+
 			talhaoRepository.deleteAll();
 
 			return ResponseEntity.ok().build();
 		}
-		
-		return ResponseEntity.notFound().build();
-		
-		
-	}
 
+		return ResponseEntity.notFound().build();
+
+	}
 
 }

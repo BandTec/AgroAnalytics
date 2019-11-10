@@ -23,11 +23,11 @@ public class Usuario {
 	private Long id;
 	
 	@JsonProperty
-	@NotNull  @NotFound @NotEmpty  @Length(max = 100)
+	@NotNull  @NotFound @NotEmpty 
 	private String nome;
 	
 	@JsonProperty
-	@NotNull  @NotFound @NotEmpty  @Length(max = 11)
+	@NotNull  @NotFound @NotEmpty 
 	private String cpf;
 	
 	@JsonProperty

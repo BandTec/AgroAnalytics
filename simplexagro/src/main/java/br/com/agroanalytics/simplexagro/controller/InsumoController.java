@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.agroanalytics.simplexagro.domain.Cultura;
 import br.com.agroanalytics.simplexagro.domain.Insumo;
 import br.com.agroanalytics.simplexagro.domain.Talhao;
 import br.com.agroanalytics.simplexagro.repository.InsumoRepository;
 
 @RestController
-@RequestMapping("/insumo")
+@RequestMapping("/insumos")
 public class InsumoController {
 	
 	@Autowired
@@ -39,7 +40,7 @@ public class InsumoController {
 
 	}
 
-	@GetMapping("/todos-insumos")
+	@GetMapping
 	public ResponseEntity<List<Insumo>> buscarTodosInsumos() {
 
 		if (insumoRepository.count() > 0) {
@@ -69,17 +70,18 @@ public class InsumoController {
 		
 	}
 
+
 	@PutMapping("/{id}")
-	public ResponseEntity atualizarInsumo(@RequestBody @Valid Insumo insumo) {
+	public ResponseEntity atualizarCultura(@PathVariable("id") Long id, @RequestBody @Valid Insumo insumo) {
 		
-		if(insumo.getId() == null) {
+		if(insumoRepository.findById(id) == null) {
 			
 			return ResponseEntity.noContent().build();
 		
 		}
 		
 		insumoRepository.save(insumo);
-
+		
 		return ResponseEntity.ok(insumo);
 
 	}
@@ -101,7 +103,7 @@ public class InsumoController {
 
 	}
 	
-	@DeleteMapping("/todos-insumos")
+	@DeleteMapping
 	@Transactional
 	public ResponseEntity excluirTodosInsumos() {
 		

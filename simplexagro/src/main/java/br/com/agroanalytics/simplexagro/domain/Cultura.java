@@ -1,11 +1,10 @@
 package br.com.agroanalytics.simplexagro.domain;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -34,14 +33,8 @@ public class Cultura {
 	public Cultura() {
 	
 	}
-
-	public Cultura(String nome, String tipo, double preco, Long cicloDiasMaturacao, String dataCriacao) {
-
-		this.nome = nome;
-		this.tipo = tipo;
-		this.preco = preco;
-		this.cicloDiasMaturacao = cicloDiasMaturacao;
-		this.dataCriacao = dataCriacao;
+	
+	public void adicionarTalhoes() {
 	}
 
 	public String getNome() {
@@ -86,6 +79,7 @@ public class Cultura {
 
 	public Long getId() {
 		return id;
-	}
+	} 
 	
+
 }
