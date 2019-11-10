@@ -45,7 +45,8 @@ public class CulturaController {
 
 	}
 
-	@PostMapping("/estaMerda")
+	@PostMapping("/cultivos")
+	@Transactional
 	public ResponseEntity<List<Plantacao>> buscarPlantacoesComCultura(@RequestBody Cultura cultura) {
 
 		List<Plantacao> plantacao = plantacaoRepository.findByCultura(cultura);

@@ -42,7 +42,7 @@ public class Talhao {
 		this.nome = nome;
 	}
 
-	public boolean isDisponibilidade() {
+	public boolean getDisponibilidade() {
 		return disponibilidade;
 	}
 

@@ -28,7 +28,7 @@ import br.com.agroanalytics.simplexagro.repository.PlantacaoRepository;
 import br.com.agroanalytics.simplexagro.repository.TalhaoRepository;
 
 @RestController
-@RequestMapping("/plantacao")
+@RequestMapping("/plantacoes")
 public class PlantacaoController {
 
 	@Autowired
@@ -50,22 +50,52 @@ public class PlantacaoController {
 		Optional<Cultura> cultivo = culturaRepository.findById(plantacao.getCultura().getId());
 
 		Optional<Talhao> canteiro = talhaoRepository.findById(plantacao.getTalhao().getId());
-			
+		
+		//Optional<Plantacao> lavoura = plantacaoRepository.findById(plantacao.getId());
+		
+		//boolean disponibilidade = talhaoRepository.findByDisponibilidade(plantacao.getTalhao().getId());
+		
 		if (cultivo.isPresent() && canteiro.isPresent()) {
 			
+			talhaoRepository.mudarEstado(false, plantacao.getTalhao().getId());
+			
 			plantacaoRepository.save(plantacao);
-
+			
 			return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
 
 		} else {
 
-			System.out.println("Para criar a plantação você deve já ter cadastrado a cultura e o talhao.");
+			System.out.println("Para criar a plantação você deve já ter cadastrado a cultura e o talhao, e o talhão não pode estar envolvido em nenhuma outra plantação!");
 
 			return ResponseEntity.noContent().build();
 
 		} 
 
 	}
+	
+
+//	@PostMapping("/colheita")
+//	@Transactional
+//	public ResponseEntity dessassociarPlantacao(@RequestBody Plantacao plantacao) {
+//		
+//		Optional<Plantacao> lavoura = plantacaoRepository.findById(plantacao.getId());
+//	
+//		if (lavoura.isPresent()) {
+//			
+//			talhaoRepository.mudarEstado(true, plantacao.getTalhao().getId());
+//			
+//			return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
+//
+//		} else {
+//
+//			System.out.println("Para dessassociar uma plantação você deve já ter cadastrado uma plantacao.");
+//
+//			return ResponseEntity.noContent().build();
+//
+//		} 
+//
+//	}
+
 
 	@GetMapping
 	public ResponseEntity<List<Plantacao>> buscarTodasPlantacoes() {

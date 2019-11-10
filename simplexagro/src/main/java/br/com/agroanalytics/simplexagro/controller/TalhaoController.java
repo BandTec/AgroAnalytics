@@ -19,15 +19,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agroanalytics.simplexagro.domain.Cultura;
+import br.com.agroanalytics.simplexagro.domain.Plantacao;
 import br.com.agroanalytics.simplexagro.domain.Talhao;
+import br.com.agroanalytics.simplexagro.repository.PlantacaoRepository;
 import br.com.agroanalytics.simplexagro.repository.TalhaoRepository;
 
 @RestController
-@RequestMapping("/talhao")
+@RequestMapping("/talhoes")
 public class TalhaoController {
 
 	@Autowired
 	private TalhaoRepository talhaoRepository;
+	
+	@Autowired
+	private PlantacaoRepository plantacaoRepository;
 
 	@PostMapping
 	@Transactional
@@ -36,6 +41,21 @@ public class TalhaoController {
 		talhaoRepository.save(talhao);
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(talhao);
+
+	}
+	
+	@PostMapping("/cultivos")
+	public ResponseEntity<List<Plantacao>> buscarTalhoesComCultura(@RequestBody Talhao talhao) {
+
+		List<Plantacao> plantacao = plantacaoRepository.findByTalhao(talhao);
+
+		if (plantacao == null) {
+
+			return ResponseEntity.noContent().build();
+
+		}
+
+		return ResponseEntity.ok(plantacao);
 
 	}
 
