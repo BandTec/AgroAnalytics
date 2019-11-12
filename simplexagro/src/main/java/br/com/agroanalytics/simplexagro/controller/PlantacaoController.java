@@ -67,30 +67,6 @@ public class PlantacaoController {
 
 	}
 	
-
-	@PostMapping("/colheitas/{id}")
-	@Transactional
-	public ResponseEntity dessassociarPlantacao(@PathVariable Long id) {
-		
-		Optional<Plantacao> lavoura = plantacaoRepository.findById(id);
-		
-		if (lavoura.isPresent()) {
-			
-			talhaoRepository.mudarEstado(true, id);
-			
-			return ResponseEntity.status(HttpStatus.CREATED).body("Talhão liberado");
-
-		} else {
-
-			System.out.println("Para dessassociar uma plantação você deve já ter cadastrado uma plantacao.");
-
-			return ResponseEntity.noContent().build();
-
-		} 
-
-	}
-
-
 	@GetMapping
 	public ResponseEntity<List<Plantacao>> buscarTodasPlantacoes() {
 
@@ -165,7 +141,7 @@ public class PlantacaoController {
 			return ResponseEntity.ok().build();
 		}
 
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.noContent().build();
 
 	}
 

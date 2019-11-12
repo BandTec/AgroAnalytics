@@ -114,7 +114,7 @@ public class InsumoController {
 			return ResponseEntity.ok().build();
 		}
 		
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.noContent().build();
 		
 		
 	}
