@@ -1,9 +1,8 @@
 package br.com.agroanalytics.simplexagro.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agroanalytics.simplexagro.domain.Cultura;
-import br.com.agroanalytics.simplexagro.domain.Insumo;
 import br.com.agroanalytics.simplexagro.domain.Plantacao;
 import br.com.agroanalytics.simplexagro.domain.Talhao;
 import br.com.agroanalytics.simplexagro.repository.CulturaRepository;
@@ -47,26 +45,44 @@ public class PlantacaoController {
 	@Transactional
 	public ResponseEntity criarPlantacao(@RequestBody Plantacao plantacao) {
 
-		Optional<Cultura> cultivo = culturaRepository.findById(plantacao.getCultura().getId());
+		Optional<Talhao> canteiro = null;
 
-		Optional<Talhao> canteiro = talhaoRepository.findById(plantacao.getTalhao().getId());
-	                
-		if (cultivo.isPresent() && canteiro.isPresent() &&  canteiro.get().getDisponibilidade() == true) {
-			
-			talhaoRepository.mudarEstado(false, plantacao.getTalhao().getId());
-			
-			plantacaoRepository.save(plantacao);
-			
-			return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
+		Optional<Cultura> cultivo;
 
-		} else {
+		ArrayList<Talhao> talhao;
 
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Para criar a plantação você deve já ter cadastrado a cultura e o talhao, e o talhão não pode estar envolvido em nenhuma outra plantação!");
+		int contador = 0;
 
-		} 
+		cultivo = culturaRepository.findById(plantacao.getCultura().getId());
+
+		talhao = new ArrayList<Talhao>();
+
+		talhao.addAll(plantacao.getTalhao());
+
+		for (Talhao a : talhao) {
+
+			canteiro = talhaoRepository.findById(a.getId());
+
+			if (cultivo.isPresent() && canteiro.isPresent() && canteiro.get().getDisponibilidade() == true) {
+
+				talhaoRepository.mudarEstado(false, canteiro.get().getId());
+
+				plantacaoRepository.save(plantacao);
+
+				contador++;
+
+			} else {
+
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+						"Para criar a plantação você deve já ter cadastrado a cultura e o talhao, e o talhão não pode estar envolvido em nenhuma outra plantação!");
+			}
+
+		}
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
 
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<List<Plantacao>> buscarTodasPlantacoes() {
 

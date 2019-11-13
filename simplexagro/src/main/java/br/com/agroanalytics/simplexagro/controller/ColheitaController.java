@@ -41,12 +41,8 @@ public class ColheitaController {
 	public ResponseEntity criarColheita(@RequestBody Colheita colheita) {
 
 		Optional<Plantacao> plantacao = plantacaoRepository.findById(colheita.getPlantacao().getId());
-		
-		System.out.println("ERRO 0");
-		
-		Optional<Talhao> talhao = talhaoRepository.findById(plantacao.get().getId());
 
-		System.out.println("PRIMEIRA POSSIBILIDADE DE ERRO. " + plantacao + talhao);
+		Optional<Talhao> talhao = talhaoRepository.findById(plantacao.get().getId());
 
 		if (plantacao.isPresent() && talhao.isPresent()) {
 

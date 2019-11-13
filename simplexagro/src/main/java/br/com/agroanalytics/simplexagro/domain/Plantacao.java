@@ -31,19 +31,18 @@ public class Plantacao {
 	private Cultura cultura;
 	
 	@JsonProperty
-	@OneToOne
+	@OneToMany
 	@JoinColumn(name = "id_talhao")
-	private Talhao talhao;
+	private List<Talhao> talhao;
 
 	public Plantacao() {}
 
-	public Plantacao(String dataCriacao, Cultura cultura, Talhao talhao, List<Insumo> insumo) {
+	public Plantacao(String dataCriacao, Cultura cultura, List<Talhao> talhao) {
 		this.dataCriacao = dataCriacao;
 		this.cultura = cultura;
 		this.talhao = talhao;
-		//this.insumo = insumo;
 	}
-	
+
 	public String getDataCriacao() {
 		return dataCriacao;
 	}
@@ -60,33 +59,16 @@ public class Plantacao {
 		this.cultura = cultura;
 	}
 
-	public Talhao getTalhao() {
+	public List<Talhao> getTalhao() {
 		return talhao;
 	}
 
-	public void setTalhao(Talhao talhao) {
+	public void setTalhao(List<Talhao> talhao) {
 		this.talhao = talhao;
 	}
-
-//	public List<Insumo> getInsumo() {
-//		return insumo;
-//	}
-//
-//	public void setInsumo(List<Insumo> insumo) {
-//		this.insumo = insumo;
-//	}
 
 	public Long getId() {
 		return id;
 	}
-	
-	
-	
 
-	
-	
-	
-	
-
-	
 }
