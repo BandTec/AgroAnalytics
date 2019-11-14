@@ -1,5 +1,7 @@
 package br.com.simplexagro.Simplex_Agro.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 //import java.util.stream.Collector;
 
 import org.springframework.http.HttpStatus;
@@ -12,16 +14,36 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.simplexagro.Simplex_Agro.domain.Usuario;
+import br.com.simplexagro.Simplex_Agro.repositories.UsuarioRepository;
+
 //import ch.qos.logback.core.subst.Token;
 
 @RestController
 public class LoginController {
 	
+	
+	private final UsuarioRepository usuarios;
+
+	public LoginController(UsuarioRepository usuario){
+		this.usuarios = usuario;
+	}
+	
 	@CrossOrigin
 	@PostMapping("/login")
 	public ResponseEntity<Double> login(@RequestBody Certificado certificado) {
-
-		if (certificado.getLogin().equals(certificado.getSenha())) { 
+		
+		Usuario usuarioLogado = new Usuario();
+		usuarioLogado.setNome(certificado.getLogin());
+		usuarioLogado.setSenha(certificado.getSenha());
+		
+		boolean teste = usuarios.existsUsuarioByNomeAndSenha(certificado.getLogin(), certificado.getSenha());
+		
+		if (teste) { 
+			
+			System.out.println(usuarios.count());
+//			usuarios.save(usuarioLogado);
+			System.out.println(usuarios.count());
 			
 			double validador  = Temporario.gerarTemporario(); 
 			

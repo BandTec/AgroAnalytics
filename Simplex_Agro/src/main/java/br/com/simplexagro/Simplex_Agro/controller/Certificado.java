@@ -22,11 +22,11 @@ public class Certificado {
 		this.senha = senha;
 	}
 
-	public Object getLogin() {
+	public String getLogin() {
 		return login;
 	}
 
-	public Object getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 }
