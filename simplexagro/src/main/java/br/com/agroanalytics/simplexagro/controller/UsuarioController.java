@@ -18,10 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.agroanalytics.simplexagro.domain.Localizacao;
-import br.com.agroanalytics.simplexagro.domain.Telefone;
 import br.com.agroanalytics.simplexagro.domain.Usuario;
-
 import br.com.agroanalytics.simplexagro.repository.UsuarioRepository;
 
 @RestController

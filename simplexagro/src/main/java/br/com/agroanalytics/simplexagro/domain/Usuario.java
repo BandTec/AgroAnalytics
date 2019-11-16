@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.NotFound;
-import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;

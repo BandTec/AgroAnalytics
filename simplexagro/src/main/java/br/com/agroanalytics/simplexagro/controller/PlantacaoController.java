@@ -1,5 +1,6 @@
 package br.com.agroanalytics.simplexagro.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,11 +45,13 @@ public class PlantacaoController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity criarPlantacao(@RequestBody Plantacao plantacao) {
+	public ResponseEntity criarPlantacao(@RequestBody Plantacao plantacao) throws ParseException {
 
 		ArrayList<Talhao> talhao;
 
 		ArrayList<Insumo> insumos;
+		
+		Cultura cultura = null;
 
 		insumos = new ArrayList<Insumo>();
 
@@ -62,7 +65,8 @@ public class PlantacaoController {
 
 			if (insumoRepository.existsById(i.getId()) == false) {
 
-				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("O insumo id: " + i.getId() + ", não foi encontrado! Criar o insumo antes de aplicar ele em uma plantação.");
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("O insumo id: " + i.getId()
+						+ ", não foi encontrado! Criar o insumo antes de aplicar ele em uma plantação.");
 
 			}
 
@@ -72,31 +76,46 @@ public class PlantacaoController {
 
 			if (talhaoRepository.existsById(a.getId()) == false) {
 
-				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-						.body("O talhao id: " + a.getId() + ", não foi encontrado! Cadastre o talhão antes de associar ele em uma plantação.");
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("O talhao id: " + a.getId()
+						+ ", não foi encontrado! Cadastre o talhão antes de associar ele em uma plantação.");
 
 			}
-			if(talhaoRepository.buscarDisponibilidade(a.getId()) == false) {
-				
+			if (talhaoRepository.buscarDisponibilidade(a.getId()) == false) {
+
 				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(plantacaoRepository.findByTalhao(a));
-				
+
 			}
 		}
 
-		if (culturaRepository.existsById(plantacao.getCultura().getId())){
+		if (culturaRepository.existsById(plantacao.getCultura().getId())) {
 
 			for (Talhao a : talhao) {
 
 				talhaoRepository.mudarEstado(false, a.getId());
 
-				plantacaoRepository.save(plantacao);
-
 			}
 
 		} else {
 
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("A cultura id: " + plantacao.getCultura() +" não foi encontrada! Criar a cultura antes de aplicar ela em uma plantação.");
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("A cultura id: " + plantacao.getCultura()
+					+ " não foi encontrada! Criar a cultura antes de aplicar ela em uma plantação.");
 		}
+		
+		plantacao.calcularDataColheita(culturaRepository.buscarMaturacaoPorId(plantacao.getCultura().getId()));
+		
+		int tempo = 0;
+		
+		for(Insumo i : insumos) {
+		
+			if(insumoRepository.buscarTempoAcaoPorId(i.getId()) > tempo)
+			
+			plantacao.calcularDataConsumo(insumoRepository.buscarTempoAcaoPorId(i.getId()));
+			
+			tempo = insumoRepository.buscarTempoAcaoPorId(i.getId());
+			
+		}
+
+		plantacaoRepository.save(plantacao);
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
 

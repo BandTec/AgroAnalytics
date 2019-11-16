@@ -22,9 +22,5 @@ public interface TalhaoRepository extends JpaRepository<Talhao, Long> {
 	@Query("select u.disponibilidade from Talhao as u where u.id = :id")
 	public boolean buscarDisponibilidade(@Param("id") Long id);
 
-	//public boolean findByDisponibilidade(Long id);
-
-	
-	
 }
 

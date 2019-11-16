@@ -1,15 +1,10 @@
 package br.com.agroanalytics.simplexagro.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -24,18 +19,23 @@ public class Insumo {
 	
 	@JsonProperty
 	private String tipo;
-	
+		
 	@JsonProperty
-	private double quantAtual;
-	
-	@JsonProperty
-	private double quantUsada;
-	
-	@JsonProperty
-	private long tempoAcao;
+	private int tempoAcao;
 	
 	@JsonProperty
 	private double quantRecomendada;
+	
+	public Insumo() {
+
+	}
+
+	public Insumo(String nome, String tipo, int tempoAcao, double quantRecomendada) {
+		this.nome = nome;
+		this.tipo = tipo;
+		this.tempoAcao = tempoAcao;
+		this.quantRecomendada = quantRecomendada;
+	}
 
 	public String getNome() {
 		return nome;
@@ -53,27 +53,11 @@ public class Insumo {
 		this.tipo = tipo;
 	}
 
-	public double getQuantAtual() {
-		return quantAtual;
-	}
-
-	public void setQuantAtual(double quantAtual) {
-		this.quantAtual = quantAtual;
-	}
-
-	public double getQuantUsada() {
-		return quantUsada;
-	}
-
-	public void setQuantUsada(double quantUsada) {
-		this.quantUsada = quantUsada;
-	}
-
-	public long getTempoAcao() {
+	public int getTempoAcao() {
 		return tempoAcao;
 	}
 
-	public void setTempoAcao(long tempoAcao) {
+	public void setTempoAcao(int tempoAcao) {
 		this.tempoAcao = tempoAcao;
 	}
 
@@ -88,5 +72,5 @@ public class Insumo {
 	public Long getId() {
 		return id;
 	}
-	
+
 }

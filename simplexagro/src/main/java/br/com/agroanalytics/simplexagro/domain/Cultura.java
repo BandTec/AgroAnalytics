@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,19 +21,20 @@ public class Cultura {
 	private String tipo;
 
 	@JsonProperty
-	private double preco;
+	private double precoUnitario;
 	
 	@JsonProperty
-	private Long cicloDiasMaturacao;
+	private int cicloDiasMaturacao;
 	
-	@JsonProperty
-	private String dataCriacao;
-
 	public Cultura() {
-	
+		
 	}
-	
-	public void adicionarTalhoes() {
+
+	public Cultura(String nome, String tipo, double precoUnitario, int cicloDiasMaturacao) {
+		this.nome = nome;
+		this.tipo = tipo;
+		this.precoUnitario = precoUnitario;
+		this.cicloDiasMaturacao = cicloDiasMaturacao;
 	}
 
 	public String getNome() {
@@ -53,33 +53,27 @@ public class Cultura {
 		this.tipo = tipo;
 	}
 
-	public double getPreco() {
-		return preco;
+	public double getPrecoUnitario() {
+		return precoUnitario;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public void setPrecoUnitario(double precoUnitario) {
+		this.precoUnitario = precoUnitario;
 	}
 
-	public Long getCicloDiasMaturacao() {
+	public int getCicloDiasMaturacao() {
 		return cicloDiasMaturacao;
 	}
 
-	public void setCicloDiasMaturacao(Long cicloDiasMaturacao) {
+	public void setCicloDiasMaturacao(int cicloDiasMaturacao) {
 		this.cicloDiasMaturacao = cicloDiasMaturacao;
-	}
-
-	public String getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public void setDataCriacao(String dataCriacao) {
-		this.dataCriacao = dataCriacao;
 	}
 
 	public Long getId() {
 		return id;
-	} 
+	}
+	
+	
 	
 
 }
