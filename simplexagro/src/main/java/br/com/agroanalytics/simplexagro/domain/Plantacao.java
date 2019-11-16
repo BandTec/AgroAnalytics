@@ -34,38 +34,63 @@ public class Plantacao {
 	@OneToMany
 	@JoinColumn(name = "id_talhao")
 	private List<Talhao> talhao;
-
+	
+	@JsonProperty
+	@OneToMany
+	@JoinColumn(name = "id_insumos")
+	private List<Insumo> insumos;
+	
+	
 	public Plantacao() {}
 
-	public Plantacao(String dataCriacao, Cultura cultura, List<Talhao> talhao) {
+
+	public Plantacao(String dataCriacao, Cultura cultura, List<Talhao> talhao, List<Insumo> insumos) {
 		this.dataCriacao = dataCriacao;
 		this.cultura = cultura;
 		this.talhao = talhao;
+		this.insumos = insumos;
 	}
+
 
 	public String getDataCriacao() {
 		return dataCriacao;
 	}
 
+
 	public void setDataCriacao(String dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
+
 
 	public Cultura getCultura() {
 		return cultura;
 	}
 
+
 	public void setCultura(Cultura cultura) {
 		this.cultura = cultura;
 	}
+
 
 	public List<Talhao> getTalhao() {
 		return talhao;
 	}
 
+
 	public void setTalhao(List<Talhao> talhao) {
 		this.talhao = talhao;
 	}
+
+
+	public List<Insumo> getInsumos() {
+		return insumos;
+	}
+
+
+	public void setInsumos(List<Insumo> insumos) {
+		this.insumos = insumos;
+	}
+
 
 	public Long getId() {
 		return id;

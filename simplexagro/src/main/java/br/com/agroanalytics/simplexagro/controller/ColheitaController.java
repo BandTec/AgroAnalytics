@@ -1,5 +1,6 @@
 package br.com.agroanalytics.simplexagro.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,21 +41,27 @@ public class ColheitaController {
 	@Transactional
 	public ResponseEntity criarColheita(@RequestBody Colheita colheita) {
 
-		Optional<Plantacao> plantacao = plantacaoRepository.findById(colheita.getPlantacao().getId());
+		Optional<Plantacao> plantacao;
 
-		Optional<Talhao> talhao = talhaoRepository.findById(plantacao.get().getId());
+		Optional<Talhao> canteiro;
 
-		if (plantacao.isPresent() && talhao.isPresent()) {
+		ArrayList<Talhao> talhao;
 
-			System.out.println("SEGUNDA POSSIBILIDADE ERRO." + plantacao);
+		int contador = 0;
 
-			talhaoRepository.mudarEstado(true, talhao.get().getId());
+		talhao = new ArrayList<Talhao>();
 
-			System.out.println("TERCEIRA POSSIBILIDADE ERRO." + plantacao);
-			
-			colheitaRepository.save(colheita);
+		plantacao = plantacaoRepository.findById(colheita.getPlantacao().getId());
 
-			return ResponseEntity.status(HttpStatus.CREATED).body(colheita + "/n Talhão Liberado!");
+		if (plantacao.isPresent()) {
+
+			talhao.addAll(plantacao.get().getTalhao());
+
+			for (Talhao a : talhao) {
+
+				talhaoRepository.mudarEstado(true, a.getId());
+
+			}
 
 		} else {
 
@@ -62,6 +69,10 @@ public class ColheitaController {
 					"Para realizar a colheita você deve já ter cadastrado uma plantacão com cultura e o talhao, e o talhão não pode estar envolvido em nenhuma outra plantação!");
 
 		}
+
+		colheitaRepository.save(colheita);
+
+		return ResponseEntity.status(HttpStatus.CREATED).body("Talhões liberados!");
 
 	}
 

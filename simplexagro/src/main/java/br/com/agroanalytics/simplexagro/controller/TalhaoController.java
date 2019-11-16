@@ -45,9 +45,9 @@ public class TalhaoController {
 	}
 	
 	@PostMapping("/cultivos")
-	public ResponseEntity<List<Plantacao>> buscarTalhoesComCultura(@RequestBody Talhao talhao) {
+	public ResponseEntity buscarTalhoesComCultura(@RequestBody Talhao talhao) {
 
-		List<Plantacao> plantacao = plantacaoRepository.findByTalhao(talhao);
+		Plantacao plantacao = plantacaoRepository.findByTalhao(talhao);
 
 		if (plantacao == null) {
 

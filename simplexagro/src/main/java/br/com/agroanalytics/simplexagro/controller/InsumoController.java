@@ -39,7 +39,7 @@ public class InsumoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(insumo);
 
 	}
-
+	
 	@GetMapping
 	public ResponseEntity<List<Insumo>> buscarTodosInsumos() {
 
@@ -72,9 +72,9 @@ public class InsumoController {
 
 
 	@PutMapping("/{id}")
-	public ResponseEntity atualizarCultura(@PathVariable("id") Long id, @RequestBody @Valid Insumo insumo) {
+	public ResponseEntity atualizarInsumo(@RequestBody Insumo insumo) {
 		
-		if(insumoRepository.findById(id) == null) {
+		if(insumoRepository.existsById(insumo.getId()) == false) {
 			
 			return ResponseEntity.noContent().build();
 		

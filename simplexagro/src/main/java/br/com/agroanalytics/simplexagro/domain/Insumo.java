@@ -36,12 +36,7 @@ public class Insumo {
 	
 	@JsonProperty
 	private double quantRecomendada;
-//	
-//	@JsonProperty
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "id_plantacao")
-//	private Plantacao plantacao;
-	
+
 	public String getNome() {
 		return nome;
 	}

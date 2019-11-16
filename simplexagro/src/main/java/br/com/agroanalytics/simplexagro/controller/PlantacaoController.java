@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agroanalytics.simplexagro.domain.Cultura;
+import br.com.agroanalytics.simplexagro.domain.Insumo;
 import br.com.agroanalytics.simplexagro.domain.Plantacao;
 import br.com.agroanalytics.simplexagro.domain.Talhao;
 import br.com.agroanalytics.simplexagro.repository.CulturaRepository;
@@ -45,40 +46,58 @@ public class PlantacaoController {
 	@Transactional
 	public ResponseEntity criarPlantacao(@RequestBody Plantacao plantacao) {
 
-		Optional<Talhao> canteiro = null;
-
-		Optional<Cultura> cultivo;
-
 		ArrayList<Talhao> talhao;
 
-		int contador = 0;
+		ArrayList<Insumo> insumos;
 
-		cultivo = culturaRepository.findById(plantacao.getCultura().getId());
+		insumos = new ArrayList<Insumo>();
 
 		talhao = new ArrayList<Talhao>();
 
 		talhao.addAll(plantacao.getTalhao());
 
-		for (Talhao a : talhao) {
+		insumos.addAll(plantacao.getInsumos());
 
-			canteiro = talhaoRepository.findById(a.getId());
+		for (Insumo i : insumos) {
 
-			if (cultivo.isPresent() && canteiro.isPresent() && canteiro.get().getDisponibilidade() == true) {
+			if (insumoRepository.existsById(i.getId()) == false) {
 
-				talhaoRepository.mudarEstado(false, canteiro.get().getId());
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("O insumo id: " + i.getId() + ", não foi encontrado! Criar o insumo antes de aplicar ele em uma plantação.");
 
-				plantacaoRepository.save(plantacao);
-
-				contador++;
-
-			} else {
-
-				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
-						"Para criar a plantação você deve já ter cadastrado a cultura e o talhao, e o talhão não pode estar envolvido em nenhuma outra plantação!");
 			}
 
 		}
-		
+
+		for (Talhao a : talhao) {
+
+			if (talhaoRepository.existsById(a.getId()) == false) {
+
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+						.body("O talhao id: " + a.getId() + ", não foi encontrado! Cadastre o talhão antes de associar ele em uma plantação.");
+
+			}
+			if(talhaoRepository.buscarDisponibilidade(a.getId()) == false) {
+				
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(plantacaoRepository.findByTalhao(a));
+				
+			}
+		}
+
+		if (culturaRepository.existsById(plantacao.getCultura().getId())){
+
+			for (Talhao a : talhao) {
+
+				talhaoRepository.mudarEstado(false, a.getId());
+
+				plantacaoRepository.save(plantacao);
+
+			}
+
+		} else {
+
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("A cultura id: " + plantacao.getCultura() +" não foi encontrada! Criar a cultura antes de aplicar ela em uma plantação.");
+		}
+
 		return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
 
 	}
