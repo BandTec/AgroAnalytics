@@ -1,6 +1,6 @@
 function populaTabela() {
     var httpusuario = new XMLHttpRequest();
-    httpusuario.open("GET", "/banco/usuariolista", false);
+    httpusuario.open("GET", "http://localhost:8080/culturas", false);
     httpusuario.send(null);
 
     var objLista = JSON.parse(httpusuario.responseText);

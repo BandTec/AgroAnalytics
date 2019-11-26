@@ -1,6 +1,0 @@
-#FileLock
-#Sat Nov 16 04:18:48 GMT-03:00 2019
-hostName=SPON4593.sp01.local
-id=16e73140300572d76605f516ec1186f9b5c698a91ea
-method=file
-server=192.168.56.1\:49590
