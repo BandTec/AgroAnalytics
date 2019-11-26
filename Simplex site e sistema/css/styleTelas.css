@@ -97,7 +97,7 @@ aside ul li a {
 
 article {
   background: rgb(255, 255, 153) url();
-  padding-bottom: 270px;
+  padding-bottom: 376px;
   margin-left: 5%;
   border-radius: 5px;
   box-shadow: 0px 2px 7px #6e6e6e;
@@ -624,6 +624,12 @@ margin-bottom: 60px;
 .cpf[type=number]::-webkit-inner-spin-button,.cpf[type=number]::-webkit-outer-spin-button{
 -webkit-appearance: none; 
 margin: 0; 
+}
+
+.botão{
+  color : #000;
+  background-color: #fff;
+  
 }
 
   

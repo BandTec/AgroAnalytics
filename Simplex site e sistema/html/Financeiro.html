@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Financeiro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Signika:400,600'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<!-- HOVER EFFECTS (da hora) -->
+<link rel="stylesheet" href="../css/hover-min.css">
+<link rel="stylesheet" href="../css/styleTelas.css">
+<!-- BOOTSTRAP -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- ICONE E TITULO ABA NAVEGADOR -->
+<link rel="icon" href="../images/mh_min_logo2.png">
+
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.13/css/mdb.min.css" rel="stylesheet">
+
+<!-- JAVASCRIPT PERSONALIZADO -->
+<script src="monkeys.js"></script>
+<script src="../js/estrutura_table.js"></script>
+<script src="../js/lista_usuario.js"></script>
+
+<!-- IMPORT DATA TABLE -->
+<script src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js'></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+<script src="../js/jquery.mask.min.js"></script>
+
+  
+  <script src="../js/script.js"></script>
+</head>
+
+<body>
+
+
+
+  <script>
+    
+    $(document).ready(function () {
+    $('#saldoi').mask('#.##0,00', {reverse: true});
+    
+})   
+    
+    </script>
+  <!-- Todo o campo do topo da pagina-->
+  <header>
+    <span onclick="btnMenu()">
+      <img class= "menu" src="../css/imagens/images.png" id="btnMenu"alt="Buscar" />
+    </span>
+
+    <img class="logo" src="../css/imagens/Simp.png" alt="some text" width=150 height=45>
+                
+                
+        <!-- <form> que armazena a barra de pesquisa -->
+        <form class="Barra_pesquisa">
+                                                                                                                                                                                                    
+        <input class="barra" type="search" id="busca" name="">
+        <button class="botao_pesquisa" type="submit" id="barra"><img src="../css/imagens/lupa.png" id="btnBusca"alt="Buscar" /></button>
+                   
+        <!--imagem do usuário-->   
+        <div class="circle">
+          <center><img class="imagem" src="../css/imagens/mei.jpg" alt="some text" width=5 height=110 style="left: 0px;" ></center>
+        </div>
+                    
+                
+        </form>
+            
+  </header>
+
+  <section class="main">
+    <!--Contem os dados da coluna de menu e os mantem na lateral da pagina-->
+    <aside class="keep">
+      
+            <br><br><br><br><br><br>
+          <!--A tag <ul> armazena todo o conjunto da lista da coluna-->
+          <ul>
+    
+            <!--tag <li> indica que o elemento esta armazenado em uma lista-->
+
+        <li>
+
+            <!--Adicionar o link da pagina a ser referenciada na tag <a>-->
+            <a href="">
+            <span><img src="../css/imagens/estoque.png" id="btnBusca"alt="Buscar" /></span>
+          </a>
+          <center style="display: none;" id="esconderE">Estoque</center> 
+        </li>
+        <li>
+          <a href="">
+            <span><img src="../css/imagens/financeiro.png" id="btnBusca"alt="Buscar" /></span>
+          </a>
+          <center style="display: none;" id="esconderF">Financeiro</center>
+        </li>
+        <li>
+          <a href="">
+            <span><img src="../css/imagens/Insumo.png" id="btnBusca"alt="Buscar" /></span>
+          </a>
+          <center style="display: none;" id="esconderI">Insumo</center>
+        </li>
+        <li>
+          <a href="">
+            <span><img src="../css/imagens/safra.png" id="btnBusca"alt="Buscar" /></span>
+          </a>
+          <center style="display: none;" id="esconderS">Safra</center>
+        </li>
+      </ul>
+    </aside>
+    <br>
+
+    <!--(<article>)Tag que armazena o quadro amarelo e as listas-->
+    
+      <article>
+        <br>
+  
+  
+        <span id="topo"></span>
+  
+        <div class="container">
+ 
+          <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="dataTables_length" id="DataTables_Table_0_length">
+                  <label>Saldo Inicial por mês:
+                    <input type="text" id="saldoi" class="form-control input-sm" aria-controls="DataTables_Table_0">
+                    <button type="submit" class="btn btn-success" onclick=""><b style="font-family: Arial, Helvetica, sans-serif; width: 20px; height: 40px;">Salvar</b></button>
+                
+              </div>
+              
+                </div>
+  
+              <div class="col-sm-6">
+  
+  
+                <div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Pesquise qualquer campo:<input
+                      type="search" class="form-control input-sm" placeholder=""
+                      aria-controls="DataTables_Table_0"></label></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="estrutura_table table table-spriped table-bordered dataTable no-footer" style="width: 100%;"
+                  id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                  <thead>
+                    <tr role="row">
+                      <th style="width: 189px;" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0"
+                        rowspan="1" colspan="1" aria-sort="ascending"
+                        aria-label="Saldo Inicial: activate to sort column descending">Saldo Inicial</th>
+                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                        aria-label="Saldo Final: activate to sort column ascending" style="width: 179px;">Saldo Final</th>
+                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                        aria-label="Lucro com colheita: activate to sort column ascending" style="width: 283px;">Lucro com
+                        colheita</th>
+                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                        aria-label="Gasto com a plantação: activate to sort column ascending" style="width: 334px;">Gasto
+                        com a plantação</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="odd">
+                      <td valign="top" colspan="4" class="dataTables_empty">Não há dados disponíveis na tabela</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-5">
+                <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Mostrando 0 a 0
+                  de 0 entradas</div>
+              </div>
+              <div class="col-sm-7">
+                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                  <ul class="pagination">
+                    <li class="paginate_button previous disabled" id="DataTables_Table_0_previous"><a
+                        href="file:///E:/AgroAnalytics/Simplex%20site%20e%20sistema/html/financeiro.html#"
+                        aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">Anterior</a></li>
+                    <li class="paginate_button next disabled" id="DataTables_Table_0_next"><a
+                        href="file:///E:/AgroAnalytics/Simplex%20site%20e%20sistema/html/financeiro.html#"
+                        aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">Próxima</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+      </article>
+  </section>
+
+  
+  <!-- partial -->
+  
+ 
+
+</body>
+
+</html>
