@@ -379,6 +379,31 @@ p.blink.mah span {
     border-radius:5px;
     
 }
+.botaoUni{
+  padding: 10px;
+  background: rgb(255, 255, 255);
+  color: #000;
+/*  width: 120px;*/
+  border: 0px;
+  border-radius:5px;
+}
+
+.quantidade{
+  padding: 10px;
+  background: rgb(255, 255, 255);
+  color: #000;
+  width: 120px;
+  border: 0px;
+  border-radius:5px;
+}
+.valor{
+  padding: 10px;
+  background: rgb(255, 255, 255);
+  color: #000;
+  width: 120px;
+  border: 0px;
+  border-radius:5px;
+}
 
 .botao_cadastra{
     padding: 10px;
@@ -498,11 +523,11 @@ p#mostrar{
 }
 
 .modal{
-  background: rgba(255, 0, 0, 0.301);
+  background: rgba(170, 184, 50, 0.486);
 }
 
 .modal-content{
-  background-color: #c5bfbf;
+  background-color: #aac740;
 }
 
 #conteudo {

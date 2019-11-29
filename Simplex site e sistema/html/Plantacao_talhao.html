@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="../css/styleTelas.css">
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="../js/Cultura_Talhao.js"></script>
+  <script src="../js/jquery.mask.min.js"></script>
+  <link rel="stylesheet" href="../css/cssdefiltro/rmodal.css">
+  <script type="text/javascript" src="https://unpkg.com/rmodal/dist/rmodal.js"></script>
+  <link rel="stylesheet" href="../css/cssdefiltro/bootstrap.min.css">
 </head>
 
 <body>
@@ -197,7 +201,7 @@
                      <input class="botao_cadastra" type="button" name="botao_padrao" value="Cancelar">
                   </td>
                   <td>
-                    <input class="botao_padrao" type="button" name="botaocadastra" value="Salvar">
+                    <input id="showModal" class="botao_padrao" type="button" name="botaocadastra" value="Salvar">
                   </td>
                 </tr>
                </table>
@@ -209,9 +213,84 @@
 
   
   <!-- partial -->
-  
- 
+  <style type="text/css">
+    .modal .modal-dialog {
+        width: 400px;
+        top: top;
+    }
+</style>
 
+<script type="text/javascript">
+    window.onload = function () {
+        var modal = new RModal(document.getElementById('modal'), {
+            //content: 'Abracadabra'
+            beforeOpen: function (next) {
+                console.log('beforeOpen');
+                next();
+            }
+            , afterOpen: function () {
+                console.log('opened');
+            }
+
+            , beforeClose: function (next) {
+                console.log('beforeClose');
+                next();
+            }
+            , afterClose: function () {
+                console.log('closed');
+            }
+        });
+
+        document.addEventListener('keydown', function (ev) {
+            modal.keydown(ev);
+        }, false);
+
+        document.getElementById('showModal').addEventListener("click", function (ev) {
+            ev.preventDefault();
+            modal.open();
+        }, false);
+        window.modal = modal;
+    }
+</script>
+
+
+
+ <div id="modal" class="modal">
+    <div class="modal-dialog animated">
+        <div class="modal-content">
+            <form class="form-horizontal" method="get">
+
+
+                <div class="modal-body" style="background-color:rgb(147, 161, 65);">
+                    <div class="form-group">
+
+                       <center><h4>Quanto(a)s <select class="botaoUni" name="botaounidade">
+                        <option value="caixa">Caixa</option>
+                        <option value="saco">Saco</option>
+                      </select>você colheu?</h4>
+                        <input class="quantidade"  style="width: 100%; height: 40%;" type="number">
+                        <br>
+                        <h4>Por quanto você irá vender cada? <select class="botaoUni" name="botaounidade">
+                          <option value="caixa">Caixa</option>
+                          <option value="saco">Saco</option>
+                        </select></h4>
+                        <input class="valor"  style="width: 100%; height: 40%;" type="text" id="dinheiro"></center>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    
+  $(document).ready(function () {
+  $('#dinheiro').mask('#.##0,00', {reverse: true});
+  
+})   
+  
+  </script>
 </body>
 
 </html>
