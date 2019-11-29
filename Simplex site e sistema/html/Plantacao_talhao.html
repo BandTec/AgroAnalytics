@@ -92,10 +92,10 @@
           <!--Tbela/lista de insumo-->
           <table class="tg" style="undefined;table-layout: fixed; width: 1124px">
             <colgroup>
-              <col style="width: 160px">
-              <col style="width: 380px">
-              <col style="width: 380px">
-              <col style="width: 291px">
+              <col style="width: 120px">
+              <col style="width: 250px">
+              <col style="width: 250px">
+              <col style="width: 270px">
             </colgroup>
             <tr>
               <th class="tg-n9g5">Código:</th>
@@ -108,7 +108,7 @@
           <formu action="#" method="post" tabindex="1">
             <div class="box_pergunta hide">
               <input type="text" class="form-contact-input" name="codTalhao" style="width: 12%; " placeholder=""disabled />
-              <input type="text" class="form-contact-input" name="nomeTalhao" style="width:30%" height="10%" placeholder="" required />
+              <input type="text" class="form-contact-input" name="nomeTalhao" style="width:20%" height="10%" placeholder="" required />
               <input type="text" class="form-contact-input" name="tipoTalhao" style="width: 30%" height="10%" placeholder="" required />
               <input type="text" class="form-contact-input" name="qtdUsada" style="width: 20%" height="10%" placeholder="" required />
               <!--imagens/botões de adicionar ou retirar um registro-->
@@ -130,9 +130,9 @@
           <h2>Talhão</h2><br>
           <table class="tg" style="undefined;table-layout: fixed; width: 1124px">
             <colgroup>
-              <col style="width: 155px">
-              <col style="width: 383px">
-              <col style="width: 190px">
+              <col style="width: 150px">
+              <col style="width: 250px">
+              <col style="width: 195px">
               <col style="width: 190px">
               <col style="width: 291px">
             </colgroup>
@@ -148,7 +148,7 @@
             <formu2 action="#" method="post" tabindex="2">
               <div class="box_pergunta hide2">
                 <input type="text" class="form-contact-input" name="CodigoPlant" style="width: 12%; " placeholder="" disabled />
-                <input type="text" class="form-contact-input" name="NomePlant" style="width:30%" height="10%" placeholder="" required />
+                <input type="text" class="form-contact-input" name="NomePlant" style="width:20%" height="10%" placeholder="" required />
                 <input type="text" class="form-contact-input" name="cdSafraPlant" style="width: 15%" height="10%" placeholder="" required />
                 <input type="text" class="form-contact-input" name="AreaPlant" style="width: 15%" height="10%" placeholder="" required />
                 <input type="text" class="form-contact-input" name="Disponibilidade" style="width: 20%" height="10%" placeholder="" required />
@@ -261,20 +261,41 @@
             <form class="form-horizontal" method="get">
 
 
-                <div class="modal-body" style="background-color:rgb(147, 161, 65);">
+                <div class="modal-body" style="background-color:rgb(189, 197, 69);">
                     <div class="form-group">
 
-                       <center><h4>Quanto(a)s <select class="botaoUni" name="botaounidade">
+                       <h4>Quanto(a)s <select class="botaoUni" name="botaounidade">
                         <option value="caixa">Caixa</option>
                         <option value="saco">Saco</option>
-                      </select>você colheu?</h4>
-                        <input class="quantidade"  style="width: 100%; height: 40%;" type="number">
-                        <br>
-                        <h4>Por quanto você irá vender cada? <select class="botaoUni" name="botaounidade">
+                      </select>você colheu? </h4>
+
+                        <input class="quantidade"  style="width: 30%;" type="number">
+                        
+                        <h4>Por quanto você irá vender cada <select class="botaoUni" name="botaounidade">
                           <option value="caixa">Caixa</option>
                           <option value="saco">Saco</option>
-                        </select></h4>
-                        <input class="valor"  style="width: 100%; height: 40%;" type="text" id="dinheiro"></center>
+                        </select>?</h4> 
+
+                        <input class="valor"  style="width: 30%;" type="text" id="dinheiro">
+
+                        <h4>Quantas culturas você colheu em cada <select class="botaoUni" name="botaounidade">
+                          <option value="caixa">Caixa</option>
+                          <option value="saco">Saco</option>
+                        </select>?</h4>
+                       
+                          <input class="quantidade1"  style="width: 30%;" type="number">
+                          <br>
+                        <br>
+                        <table>
+                          <tr>
+                            <td>
+                               <input class="botao_cadastra" type="button" name="botao_padrao" value="Cancelar">
+                            </td>
+                            <td>
+                              <input id="showModal" class="botao_padrao" type="button" name="botaocadastra" value="Salvar">
+                            </td>
+                          </tr>
+                         </table>
                     </div>
                 </div>
 
