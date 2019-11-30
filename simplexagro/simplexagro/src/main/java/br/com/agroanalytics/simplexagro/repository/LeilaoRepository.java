@@ -6,7 +6,7 @@ import br.com.agroanalytics.simplexagro.domain.Leilao;
 
 public interface LeilaoRepository extends JpaRepository<Leilao, Long> {
 	
-	public Leilao findByLeilao (Leilao leilao);
+	
 }
 
 

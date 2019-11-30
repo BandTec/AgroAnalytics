@@ -1,11 +1,12 @@
 package br.com.agroanalytics.simplexagro.domain;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,28 +17,27 @@ public class Colheita {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@JsonProperty
 	@OneToOne
 	@JoinColumn(name = "id_plantacao")
 	private Plantacao plantacao;
-
+	
 	@JsonProperty
 	private Long caixas;
-
+	
 	@JsonProperty
 	private String dataColheita;
-
+	
 	@JsonProperty
 	private double precoColheita;
-
-	@ManyToOne
-	private Leilao leilao;
-
+	
+	
+	
 	public Colheita() {
-
+		
 	}
-
+	
 	public Colheita(Plantacao plantacao, Long caixas) {
 		this.plantacao = plantacao;
 		this.caixas = caixas;
@@ -78,12 +78,6 @@ public class Colheita {
 	public void setPrecoColheita(double precoColheita) {
 		this.precoColheita = precoColheita;
 	}
-
-	public Leilao getLeilao() {
-		return leilao;
-	}
-
-	public void setLeilao(Leilao leilao) {
-		this.leilao = leilao;
-	}
+	
 }
+

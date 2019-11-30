@@ -5,7 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -30,9 +31,11 @@ public class Leilao {
 	private int quantidadeCaixasVendida;
 
 	@JsonProperty
-	@OneToMany
+	@OneToOne
 	@JoinColumn(name = "id_Colheita")
 	private Colheita colheita;
+	
+
 
 //---------------------------------------------	
 

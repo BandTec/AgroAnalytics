@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,15 +18,15 @@ public class Lance {
 	private Long idLance;
 
 	@JsonProperty
-	private double valorInicial;
+	private double valor;
 
-	@JsonProperty
-	private double valorFinal;
+//	@JsonProperty
+//	private double valorFinal;
 
 	@JsonProperty
 	private int quantidadeCaixasompradas;
 	
-	@OneToMany
+	@OneToOne
 	@JoinColumn(name="id_Leilao")
 	private Leilao leilao;
 	
@@ -35,8 +35,8 @@ public class Lance {
 	public Lance(Long idLance, double valorInicial, double valorFinal, int quantidadeCaixasompradas, Leilao leilao) {
 		
 		this.idLance = idLance;
-		this.valorInicial = valorInicial;
-		this.valorFinal = valorFinal;
+		this.valor = valor;
+		// this.valorFinal = valorFinal;
 		this.quantidadeCaixasompradas = quantidadeCaixasompradas;
 		this.leilao = leilao;
 	}
@@ -49,22 +49,22 @@ public class Lance {
 		this.idLance = idLance;
 	}
 
-	public double getValorInicial() {
-		return valorInicial;
+	public double getValor() {
+		return valor;
 	}
 
-	public void setValorInicial(double valorInicial) {
-		this.valorInicial = valorInicial;
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
-	public double getValorFinal() {
-		return valorFinal;
-	}
-
-	public void setValorFinal(double valorFinal) {
-		this.valorFinal = valorFinal;
-	}
-
+//	public double getValorFinal() {
+//		return valorFinal;
+//	}
+//
+//	public void setValorFinal(double valorFinal) {
+//		this.valorFinal = valorFinal;
+//	}
+//
 	public int getQuantidadeCaixasompradas() {
 		return quantidadeCaixasompradas;
 	}
