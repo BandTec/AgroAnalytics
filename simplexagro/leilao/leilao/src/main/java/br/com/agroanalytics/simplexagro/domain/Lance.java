@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,72 +13,40 @@ public class Lance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty
-	private Long idLance;
+	private Long id;
 
 	@JsonProperty
-	private double valorInicial;
+	private double valor;
 
 	@JsonProperty
-	private double valorFinal;
-
-	@JsonProperty
-	private int quantidadeCaixasompradas;
+	private int quantidadeCaixasCompradas;
 	
-	@OneToMany
-	@JoinColumn(name="id_Leilao")
-	private Leilao leilao;
-	
-	
-
-	public Lance(Long idLance, double valorInicial, double valorFinal, int quantidadeCaixasompradas, Leilao leilao) {
+	public Lance(Long idLance, double valor, int quantidadeCaixasompradas) {
 		
-		this.idLance = idLance;
-		this.valorInicial = valorInicial;
-		this.valorFinal = valorFinal;
-		this.quantidadeCaixasompradas = quantidadeCaixasompradas;
-		this.leilao = leilao;
+		this.id = idLance;
+		this.valor = valor ;
+		this.quantidadeCaixasCompradas = quantidadeCaixasompradas;
+	
 	}
-
+	
 	public Long getIdLance() {
-		return idLance;
+		return id;
 	}
 
-	public void setIdLance(Long idLance) {
-		this.idLance = idLance;
+	public double getValor() {
+		return valor;
 	}
 
-	public double getValorInicial() {
-		return valorInicial;
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
-	public void setValorInicial(double valorInicial) {
-		this.valorInicial = valorInicial;
+	public int getQuantidadeCaixasCompradas() {
+		return quantidadeCaixasCompradas;
 	}
 
-	public double getValorFinal() {
-		return valorFinal;
+	public void setQuantidadeCaixasCompradas(int quantidadeCaixasCompradas) {
+		this.quantidadeCaixasCompradas = quantidadeCaixasCompradas;
 	}
-
-	public void setValorFinal(double valorFinal) {
-		this.valorFinal = valorFinal;
-	}
-
-	public int getQuantidadeCaixasompradas() {
-		return quantidadeCaixasompradas;
-	}
-
-	public void setQuantidadeCaixasompradas(int quantidadeCaixasompradas) {
-		this.quantidadeCaixasompradas = quantidadeCaixasompradas;
-	}
-
-	public Leilao getLeilao() {
-		return leilao;
-	}
-
-	public void setLeilao(Leilao leilao) {
-		this.leilao = leilao;
-	}
-	
-	
-
 }
+	
