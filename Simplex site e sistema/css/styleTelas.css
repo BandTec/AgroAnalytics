@@ -3,7 +3,7 @@
   padding:0px;
 }
 body{
-  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/sayagata-400px.png);
+
   font-family: 'Signika', sans-serif;
   font-size:21px;
 }
@@ -18,40 +18,17 @@ header {
   z-index: 991;
 }
 
-.circle {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  position: relative;
-  left: 1065px;
-  top: 2px;
-}
 
-.nome{
-  width: 150px;
-  height: 20px;
-  overflow: hidden;
-  position: relative;
-  left: 1170px;
-  top: -90px;
-}
 
-.circle img {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  top: 10;
-}
 
 .btnMenu{
   display: block;
-  top: 30px;
+  top: 40px;
   
 }
 
 .menu{
-  top: 30px;
+  top: 40px;
   display: block;
   cursor: pointer;
   position: fixed;
@@ -95,14 +72,7 @@ aside ul li a {
 
 }
 
-article {
-  background: rgb(255, 255, 153) url();
-  padding-bottom: 376px;
-  margin-left: 5%;
-  border-radius: 5px;
-  box-shadow: 0px 2px 7px #6e6e6e;
 
-}
 aside ul li:hover {
   background: #fff;
   box-shadow: inset 0px 0px 77px #dedede;
@@ -294,7 +264,7 @@ p.blink.mah span {
       width: 100px;
       height: 40px;
       left: 894px;
-      top: 30px;
+      top: 40px;
       box-sizing: border-box;
       /*border-radius: 0px 50px 50px 0px;*/
       
@@ -302,7 +272,7 @@ p.blink.mah span {
     .logo{
       position: absolute;
       left: 103px;
-      top: 30px
+      top: 40px
       
     }
   
@@ -317,7 +287,7 @@ p.blink.mah span {
       width: 615px;
       height: 40px;
       left: 380px;
-      top: 30px;
+      top: 40px;
       
     }
     .usuario{
@@ -348,7 +318,7 @@ p.blink.mah span {
     font-size: 18px;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(0, 0, 0);
-    height: 30px;
+    height: 40px;
     margin-bottom: 20px;
     border-bottom: 1px solid rgb(0, 0, 0);
     border-left: 1px solid rgb(0, 0, 0);
@@ -378,39 +348,6 @@ p.blink.mah span {
     border: 0px;
     border-radius:5px;
     
-}
-.botaoUni{
-  padding: 2px;
-  background: rgb(255, 255, 255);
-  color: #000;
-/*  width: 120px;*/
-  border: 0px;
-  border-radius:5px;
-}
-
-.quantidade{
-  padding: 7px;
-  background: rgb(255, 255, 255);
-  color: #000;
-  width: 120px;
-  border: 0px;
-  border-radius:5px;
-}
-.quantidade1{
-  padding: 7px;
-  background: rgb(255, 255, 255);
-  color: #000;
-  width: 120px;
-  border: 0px;
-  border-radius:5px;
-}
-.valor{
-  padding: 7px;
-  background: rgb(255, 255, 255);
-  color: #000;
-  width: 120px;
-  border: 0px;
-  border-radius:5px;
 }
 
 .botao_cadastra{
@@ -531,11 +468,11 @@ p#mostrar{
 }
 
 .modal{
-  background: rgba(170, 184, 50, 0.486);
+  background: rgba(255, 0, 0, 0.301);
 }
 
 .modal-content{
-  background-color: #aac740;
+  background-color: #c5bfbf;
 }
 
 #conteudo {
@@ -659,10 +596,31 @@ margin-bottom: 60px;
 margin: 0; 
 }
 
-.botão{
-  color : #000;
-  background-color: #fff;
+.grafico1{
+  background-color: azure;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  left: 15px;
+  border-left: 15px;
+  border-right: 15px;
+  right: 15px;
+  top: 8px;
   
+}
+
+.grafico2{
+  background-color: azure;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  left: 15px;
+  border-left: 15px;
+  border-right: 15px;
+  right: 15px;
+  top: 8px;
 }
 
   

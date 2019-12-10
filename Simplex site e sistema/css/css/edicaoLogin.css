@@ -6,14 +6,14 @@
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.74);
     width: 700px;
-	height: 466px;
+    height: 500px;
 }
 
 .botao_padrao{
     padding: 10px;
     background: rgb(63, 221, 0);
     color: #fff;
-    width: 170px;
+    width: 175px;
     border: 0px;
     border-radius:5px;
     right: 100px;
@@ -23,10 +23,14 @@
     padding: 10px;
     background: rgb(255, 1, 1);
     color: #fff;
-    width: 170px;
+    width: 175px;
     border: 0px;
     border-radius:5px;
+    left: 370px;
+    position: relative;
+    top: -40px;
 }
+
 
 .botao_padrao:hover{
     background-color: rgb(34, 146, 0);

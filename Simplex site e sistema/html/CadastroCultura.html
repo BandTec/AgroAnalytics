@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Cadastro de Insumos</title>
+    <title>Cadastro de Cultura</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="../css/css/edicaoLogin.css">
+    <link rel="stylesheet" href="../css/edicaoLogin.css">
     
 
 <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/bootstrap-notify.js"></script> 
+<script src="../js/bootstrap-notify.js"></script>
 <script src="../js/bootstrap-notify.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.mask.min.js"></script> 
-<script src="../js/imputmask.min.js"></script> 
+<script src="../js/jquery.mask.min.js"></script>
+<script src="../js/imputmask.min.js"></script>
 
 
     <!-- CSS principal do SmartMenus (obrigatório) -->
@@ -30,7 +30,7 @@
 
   </head>
 
-  <body style=" width: 100%; height: 100% ;">
+  <body style="background-image: url(../imagens/manuel.jpg); width: 100%; height: 100% ; ">
 
 
     <nav id="main-nav">
@@ -39,31 +39,31 @@
       
       <!-- Definição de menu de amostra -->
       <ul id="main-menu" class="sm sm-blue"><br>
-          <li><img src="../imagens/simp2.png" width="300px"  style="top: auto;" alt=""></li>
+          <li><img src="../imagens/Simp2.png" width="300px"  style="top: auto;" alt=""></li>
           
-          <li><a href="#">Início</a></li>
+          <li><a href="http://www.smartmenus.org/">Início</a></li>
           
-        <li><a href="#">Estoque</a>
+        <li><a href="http://www.smartmenus.org/about/">Estoque</a>
           <ul>
-            <li><a href="#">Incluir</a></li>
-            <li><a href="#">Mover</a></li>
-            <li><a href="#">Visualizar</a></li>
+            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
+            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
+            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
           </ul>
         </li>
 
-        <li><a href="#">Financeiro</a>
+        <li><a href="http://www.smartmenus.org/about/">Financeiro</a>
           <ul>
-            <li><a href="#">Incluir</a></li>
-            <li><a href="#">Mover</a></li>
-            <li><a href="#">Visualizar</a></li>
+            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
+            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
+            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
           </ul>
         </li>
 
-        <li><a href="#">Insumo</a>
+        <li><a href="http://www.smartmenus.org/about/">Insumo</a>
           <ul>
-            <li><a href="#">Incluir</a></li>
-            <li><a href="#">Mover</a></li>
-            <li><a href="#">Visualizar</a></li>
+            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
+            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
+            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
           </ul>
         </li>
 
@@ -89,7 +89,7 @@
               <ul>
                 <li><a href="#">Plantação</a></li>
                 <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
+                <li><a href="listaCultura.html">Cultura</a></li>
                 <li><a href="#">Colheita</a></li>
               </ul>
             </li>
@@ -101,7 +101,7 @@
               <!-- O mega menu suspenso -->
               <div style="width:400px;max-width:100%;">
                 <div style="padding:5px 24px;">
-                  <p><strong>Guia de tela<br></strong>Nessa rotina você ira cadastrar os seus insumos, informando o nome, o tipo do insumo, tempo de ação e a quantidade recomendada</p>
+                  <p><strong>Guia de tela<br></strong>Nessa rotina você ira cadastrar as sua culturas, informando o nome, o tipo do produto, preço unitario e o seu ciclo de maturação</p>
                 </div>
               </div>
             </li>
@@ -137,99 +137,98 @@
         <br><br><br>
       
       <center>	
-        <h1>Cadastro de Insumos</h1>
+        <h1>Cadastro de Cultura</h1>
       </center>
   
         <!-- NOME -->
         <div class="row"style="background-image: logo.gif" style="width: 100px" >
           <div class="col-md-6 col-md-offset-3" style="height: 50%;">
-            <form id="form-cadastrar-insumo" name="forcult">
-
-            <label for="input-nome-insumo">Nome</label><br>
-            <input class="form-control" type="text" id="input-nome-insumo" name="nome" maxlength="20" onkeypress="mascara(this,soLetras)" minlength="10" placeholder="" style="width: 110%;"required>	 
+            <label>Nome</label><br>
+            <input class="form-control" type="text" id="nomeCultura" name="nomeCultura" maxlength="20" onkeypress="mascara(this,soLetras)" minlength="10" placeholder="" style="width: 110%;"required>	 
           </div>
-
         </div><br>
 
         <div class="row">
           <div class="col-md-6 col-md-offset-3" style="height: 50%;">
-            <label for="input-tipo-insumo">Tipo</label><br>
-            <input class="form-control" type="text" id="tipo" name="tipo" onkeypress="mascara(this,soLetras)" placeholder="" style="width: 110%;"required>
+            <label>Tipo</label><br>
+            <input class="form-control" type="text" id="tipoCultura" name="tipoCultura" onkeypress="mascara(this,soLetras)" placeholder="" style="width: 110%;"required>
         </div>
         </div><br>
 
         <div class="row">
           <div class="col-md-3 col-md-offset-3">
-            <label for="input-tempo-acao">Tempo de ação</label><br>
-            <input class="form-control" type="text" id="input-tipo-insumo" name="tempo" onkeypress='return filtroTeclas(event)' maxlength="11" placeholder="" style="width: 120%;">
-        </div>
-        <div class="col-md-3">
-            <label for="input-quant-recomendada">Qtd. recomendada</label><br>
-            <input class="form-control" type="text" id="recomendacao" name="recomendacao" onkeypress='return filtroTeclas(event)' max="10" placeholder="" style="width: 120%;">
+            <label>Preço unitario</label><br>
+            <input class="form-control" type="text" id="precoUnitario" name="precoUnitario" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 120%;">
+          </div>
+          <div class="col-md-3">
+            <label>Ciclo de maturação</label><br>
+            <input class="form-control" type="text" id="cicloMaturacao" name="cicloDeMaturacao" max="10" placeholder="" style="width: 120%;">
           </div>
         </div><br>
-     
-          <!-- BOTÕES -->
+       
+  
+        <!-- CIDADE e ESTADO -->
+             
+  
+        <!-- RUA -->
+        <!--<div class="row">
+          <div class="col-md-6 col-md-offset-3" style="height: 50%;">
+          <label>Rua:</label><br>
+          <input class="form-control" type="text" id="rua" name="nomeUsuario" placeholder="rua" style="width: 110%;"
+           required>
+        </div>
+        </div><br>-->
+
+        <!-- BOTÕES -->
         <div class="row">
           <div class="col-md-offset-3 col-md-3">
             <input type="button"  class="botao_padrao" value="Cadastrar" id="botao-criar-insumo" >
         </div>
-          </div>
-
-          <div class="row">
+      </div>
+      <div class="row">
           <div class="col-md-3">
             <input type="button" onclick="cancelarForm()" name="cancelar" value="Cancelar" class="botao_cadastra">
           </div>
-          </div>
-            </form>
-        
-        <br><br><br>
-      </div>
-    </div>
+        </div> 
       </form>
   
     <script>
     
-      function mascara(o,f){
-      v_obj=o
-      v_fun=f
-      setTimeout("execmascara()",1)
-      }
+    function mascara(o,f){
+v_obj=o
+v_fun=f
+setTimeout("execmascara()",1)
+}
 
-      function execmascara(){
-      v_obj.value=v_fun(v_obj.value)
-      }
+function execmascara(){
+v_obj.value=v_fun(v_obj.value)
+}
 
 
-      function soLetras(v){
-      return v.replace(/\d/g,"") //Remove tudo o que não é Letra
-      }
+function soLetras(v){
+return v.replace(/\d/g,"") //Remove tudo o que não é Letra
+}
 
-      function soLetrasMA(v){
-      v=v.toUpperCase() //Maiúsculas
-      return v.replace(/\d/g,"") //Remove tudo o que não é Letra ->maiusculas
-      }
+function soLetrasMA(v){
+v=v.toUpperCase() //Maiúsculas
+return v.replace(/\d/g,"") //Remove tudo o que não é Letra ->maiusculas
+}
 
-      function soLetrasMI(v){
-      v=v.toLowerCase() //Minusculas
-      return v.replace(/\d/g,"") //Remove tudo o que não é Letra ->minusculas
-      }
+function soLetrasMI(v){
+v=v.toLowerCase() //Minusculas
+return v.replace(/\d/g,"") //Remove tudo o que não é Letra ->minusculas
+}
 
-      function soNumeros(v){
-      return v.replace(/\D/g,"") //Remove tudo o que não é dígito
-      }
+function soNumeros(v){
+return v.replace(/\D/g,"") //Remove tudo o que não é dígito
+}
     
     </script>
 
-    <script>
-    var filtroTeclas = function(event) {
-      return ((event.charCode >= 48 && event.charCode <= 57) || (event.keyCode == 45 || event.charCode == 46))
-    }
-    </script>
   
 
     <!-- Plugin jQuery SmartMenus -->
-    <script type="text/javascript" src="../js/jquery.smartmenus.js"></script>
+    <script type="text/javascript" src="../jquery.smartmenus.js"></script>
 
     <!-- Iniciação jQuery do SmartMenus -->
     <script type="text/javascript">
@@ -243,7 +242,7 @@
 
 
   </body>
-  <script src="../js/insumo.js"></script>
+  <script src="cadastroCultura.js"></script>
   
 </html>
 
