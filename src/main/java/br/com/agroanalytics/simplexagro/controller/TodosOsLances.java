@@ -14,7 +14,7 @@ public class TodosOsLances {
 	public TodosOsLances() {
 
 		restTemplate = new RestTemplate();
-		url = "http://localhost:8081";
+		url = "http://simplexagroleilao.azurewebsites.net";
 
 	}
 
