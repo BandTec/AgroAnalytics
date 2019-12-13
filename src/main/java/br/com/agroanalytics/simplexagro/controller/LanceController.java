@@ -1,10 +1,12 @@
 package br.com.agroanalytics.simplexagro.controller;
 
+import java.util.List;
 import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,16 +45,16 @@ public class LanceController {
 
 	}
 
-//	@GetMapping("/lance")
-//	public ResponseEntity<List<Lance>> buscarLance() {
-//
-//		if (lanceRepository.count() > 0) {
-//			List<Lance> lista = lanceRepository.findAll();
-//			return ResponseEntity.ok(lista);
-//		}
-//		return ResponseEntity.notFound().build();
-//	}
-//
+	@GetMapping("/lance")
+	public ResponseEntity<List<Lance>> buscarLance() {
+
+		if (lanceRepository.count() > 0) {
+			List<Lance> lista = lanceRepository.findAll();
+			return ResponseEntity.ok(lista);
+		}
+		return ResponseEntity.notFound().build();
+	}
+
 //	@GetMapping("/{id}")
 //	@Transactional
 //	public ResponseEntity buscarLances(@PathVariable("id") Long id) {
