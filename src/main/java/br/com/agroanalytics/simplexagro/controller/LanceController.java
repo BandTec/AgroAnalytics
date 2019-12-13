@@ -9,13 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agroanalytics.simplexagro.domain.Lance;
 import br.com.agroanalytics.simplexagro.repository.LanceRepository;
 
 @RestController
-//@RequestMapping("/lance")
 public class LanceController {
 
     @Autowired
@@ -23,7 +24,7 @@ public class LanceController {
 	
 	private static  Stack<Double> pilha = new Stack<Double>();
 	
-	@PostMapping("/lance")
+	@PostMapping("/")
 	public ResponseEntity lanceUsuario(@RequestBody Lance lance) {
 		
 		if(pilha.isEmpty() == true) {
@@ -45,14 +46,10 @@ public class LanceController {
 
 	}
 
-	@GetMapping("/lance")
+	@RequestMapping(value = "/lance", method = RequestMethod.GET)
 	public ResponseEntity<List<Lance>> buscarLance() {
-
-		if (lanceRepository.count() > 0) {
-			List<Lance> lista = lanceRepository.findAll();
-			return ResponseEntity.ok(lista);
-		}
-		return ResponseEntity.notFound().build();
+		List<Lance> lista = lanceRepository.findAll();
+		return ResponseEntity.ok(lista);
 	}
 
 //	@GetMapping("/{id}")

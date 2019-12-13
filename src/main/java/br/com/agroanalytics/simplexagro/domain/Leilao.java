@@ -17,16 +17,16 @@ public class Leilao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty
-	private Long idLeilao;
+	private Long id_leilao;
 
 	@JsonProperty
-	private String nomeComprador;
+	private String nome_comprador;
 
 	@JsonProperty
-	private double valorInicial;
+	private double valor_inicial;
 
 	@JsonProperty
-	private double valorFinal;
+	private double valor_final;
 	
 	@OneToMany
 	@JoinColumn(name = "id_lance")
@@ -34,36 +34,40 @@ public class Leilao {
 
 //---------------------------------------------	
 
+	public Leilao() {
+		
+	}
+	
 	public Long getIdLeilao() {
-		return idLeilao;
+		return id_leilao;
 	}
 
 	public void setIdLeilao(Long idLeilao) {
-		this.idLeilao = idLeilao;
+		this.id_leilao = idLeilao;
 	}
 
 	public String getNomeComprador() {
-		return nomeComprador;
+		return nome_comprador;
 	}
 
 	public void setNomeComprador(String nomeComprador) {
-		this.nomeComprador = nomeComprador;
+		this.nome_comprador = nomeComprador;
 	}
 
 	public double getValorInicial() {
-		return valorInicial;
+		return valor_inicial;
 	}
 
 	public void setValorInicial(double valorInicial) {
-		this.valorInicial = valorInicial;
+		this.valor_inicial = valorInicial;
 	}
 
 	public double getValorFinal() {
-		return valorFinal;
+		return valor_final;
 	}
 
 	public void setValorFinal(double valorFinal) {
-		this.valorFinal = valorFinal;
+		this.valor_final = valorFinal;
 	}
 
 

@@ -13,24 +13,28 @@ public class Lance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty
-	private Long id;
+	private Long id_lance;
 
 	@JsonProperty
 	private double valor;
 
 	@JsonProperty
-	private int quantidadeCaixasCompradas;
+	private int quantidade_caixasompradas;
+	
+	public Lance() {
+		
+	}
 	
 	public Lance(Long idLance, double valor, int quantidadeCaixasompradas) {
 		
-		this.id = idLance;
+		this.id_lance = idLance;
 		this.valor = valor ;
-		this.quantidadeCaixasCompradas = quantidadeCaixasompradas;
+		this.quantidade_caixasompradas = quantidadeCaixasompradas;
 	
 	}
 	
 	public Long getIdLance() {
-		return id;
+		return id_lance;
 	}
 
 	public double getValor() {
@@ -42,11 +46,11 @@ public class Lance {
 	}
 
 	public int getQuantidadeCaixasCompradas() {
-		return quantidadeCaixasCompradas;
+		return quantidade_caixasompradas;
 	}
 
 	public void setQuantidadeCaixasCompradas(int quantidadeCaixasCompradas) {
-		this.quantidadeCaixasCompradas = quantidadeCaixasCompradas;
+		this.quantidade_caixasompradas = quantidadeCaixasCompradas;
 	}
 }
 	
