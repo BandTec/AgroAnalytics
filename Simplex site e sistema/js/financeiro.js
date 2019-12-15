@@ -1,39 +1,72 @@
-var referenciaInsumo = document.querySelector("#grafico-insumos-anual").getContext("2d");
+var xhr = new XMLHttpRequest();
 
-var referenciaInvestimento = document.querySelector("#grafico-investimento-anual").getContext("2d");
+xhr.open("GET", "http://localhost:8080/graficos");
 
-var datasb =["11/11/11","11/11/11","11/11/11","11/11/11","11/11/11","11/11/11"];
+xhr.send();
 
-var tabelaInvestimento = new Chart(referenciaInvestimento, {
-    type: 'bar',
+var insumos;
+
+var data = [];
+
+var totalInsumosGastos = [];
+
+var quantLitrosAplicados = [];
+
+var quantInsumosTotal = [];
+
+xhr.addEventListener("load", function () {
+
+    if (xhr.status == 200) {
+
+        var resposta = xhr.responseText;
+
+        insumos = JSON.parse(resposta);
+
+        for (var i = 0; i < insumos.length; i++) {
+
+            data[i] = insumos[i].data;
+
+            totalInsumosGastos[i] = insumos[i].totalInsumosGastos;
+
+            quantLitrosAplicados[i] = insumos[i].quantLitrosAplicados
+           
+            quantInsumosTotal[i] = insumos[i].quantInsumosTotal;
+
+        }}});
+
+var referenciaInsumo = document.querySelector("#grafico-insumos").getContext("2d");
+
+var tabelaInvestimento = new Chart(referenciaInsumo, {
+    type: 'line',
     data: {
-        labels: datasb,
+        labels: data,
         datasets: [{
-                label: "Investimento.",
-                backgroundColor: "green",
-                borderColor: "green",
-                data: [20, 1, 2, 2, 4, 9, 1, 2, 3, 1, 3, 8],
+            label: "Quantidade total de insumos gasta.",
+            backgroundColor: "transparent",
+            borderColor: "green",
+            data: totalInsumosGastos,
+            borderWidth: 3
 
-            },
-            {
-                label: "Gasto.",
-                backgroundColor: "red",
-                borderColor: "red",
-                data: [20, 10, 20, 2, 4, 90, 10, 20, 30, 10, 3, 3],
-                borderWidth: 3
+        },
+        {
+            label: "Saldo de insumos.",
+            backgroundColor: "transparent",
+            borderColor: "red",
+            data: quantInsumosTotal,
+            borderWidth: 3
 
-            }, {
-                label: "Venda de culturas.",
-                backgroundColor: "blue",
-                borderColor: "blue",
-                data: [10, 10, 20, 2, 4, 90, 10, 20, 30, 1, 3, 8],
-                borderWidth: 3
-            }
+        }, {
+            label: "Quantidade de insumos aplicada.",
+            backgroundColor: "transparent",
+            borderColor: "blue",
+            data: quantLitrosAplicados,
+            borderWidth: 3
+        }
         ]
     },
     options: {
         title: {
-            text: "Investimentos, vendas e gasto em 2019.",
+            text: "Analise de gastos, aplicação e total de insumos.",
             display: true,
             fontSize: 40
         }
@@ -41,42 +74,3 @@ var tabelaInvestimento = new Chart(referenciaInvestimento, {
 
 });
 
-var datas = ['11/11/19', '20/11/19', '13/04/19', '20/20/19'];
-var datasb = ['11/11/19', '20/11/19', '13/04/19', '20/20/19'];
-
-var tabelaInsumo = new Chart(referenciaInsumo, {
-
-    type: 'line',
-    data: {
-        labels: datas,
-        datasets: [{
-                label: "TIPO A",
-                backgroundColor: "transparent",
-                borderColor: "blue",
-                data: [20.000, 100.000, 200.000, 2.220, 4.000, 9.000, 100, 2.000, 3.300, 1.000, 3.344, 8.923],
-                borderWidth: 3
-                
-
-
-            },
-            {
-
-                label: "TIPO B",
-                labels:datas,
-                backgroundColor: "transparent",
-                borderColor: "green",
-                data: [10, 100, 200, 2, 4, 90, 10, 20, 30, 100, 344, 823],
-                borderWidth: 3
-
-            }
-        ],
-    },
-    options: {
-        
-        title: {
-            text: "Gastos com insumos comprados em 2019.",
-            display: true,
-            fontSize: 40
-        }
-    }
-});

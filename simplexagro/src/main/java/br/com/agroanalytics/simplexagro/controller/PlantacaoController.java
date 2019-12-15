@@ -133,9 +133,7 @@ public class PlantacaoController {
 
 		graficoInsumos.setQuantLitrosAplicados(plantacao.getQuantLitrosAplicados());
 
-		Double insumosAplicados = plantacaoRepository.buscarTodosInsumosAplicados();
-
-		graficoInsumos.setTotalInsumosGastos(insumosAplicados);
+		graficoInsumos.setTotalInsumosGastos(plantacaoRepository.buscarTodosInsumosAplicados());
 		
 		for (Insumo a : insumos) {
 

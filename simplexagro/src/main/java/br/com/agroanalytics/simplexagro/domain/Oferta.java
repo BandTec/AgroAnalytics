@@ -14,9 +14,6 @@ public class Oferta {
 	private Long id;
 	
 	@JsonProperty
-	private Long idUsuario;
-	
-	@JsonProperty
 	private Long idColheita;
 	
 	@JsonProperty
@@ -24,14 +21,6 @@ public class Oferta {
 	
 	@JsonProperty
 	private long quantCaixasCompradas;
-
-	public Long getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
-	}
 
 	public Long getIdColheita() {
 		return idColheita;

@@ -1,5 +1,6 @@
 package br.com.agroanalytics.simplexagro.controller;
 
+import java.lang.module.FindException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Stack;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,15 +19,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.agroanalytics.simplexagro.domain.Colheita;
 import br.com.agroanalytics.simplexagro.domain.Oferta;
+import br.com.agroanalytics.simplexagro.repository.ColheitaRepository;
 import br.com.agroanalytics.simplexagro.repository.OfertaRepository;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/ofertas")
 public class OfertaController {
 
 	@Autowired
 	private OfertaRepository ofertaRepository;
+	
+	@Autowired
+	private ColheitaRepository colheitaRepository;
 
 	private static Stack<Double> ofertas = new Stack<Double>();
 
@@ -44,6 +52,27 @@ public class OfertaController {
 
 		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("O valor da ultima oferta Ã© maior ou igual ao que vocÃª estÃ¡ ofertando!");
 
+	}
+	
+	@PostMapping("/aceitarOferta")
+	public ResponseEntity aceitarOferta(@RequestBody Oferta oferta) {
+		
+		if (ofertaRepository.existsById(oferta.getId()) == true && colheitaRepository.existsById(oferta.getIdColheita()) == true) { 
+			
+			colheitaRepository.mudarEstado(colheitaRepository.buscarCaixas(oferta.getIdColheita())- oferta.getQuantCaixasCompradas(), oferta.getIdColheita());
+			
+			return ResponseEntity.status(HttpStatus.OK).body("Negócio fechado!");
+
+		}else if(!ofertaRepository.existsById(oferta.getId())) {
+
+		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Oferta com id's inválidos!");
+		
+		}else {
+			
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Lance com id's inválidos!");
+
+			
+		}
 	}
 	
 	@GetMapping
