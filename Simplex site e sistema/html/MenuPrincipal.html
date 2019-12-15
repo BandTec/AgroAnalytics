@@ -84,9 +84,9 @@
                    <img src="../imagens/meuquilino3.png" alt="" id="gameleira">
                    <div class="team_content">
                        <ul>
-                          <button class="btn btn-danger">Incluir</button>
-                          <button class="btn btn-danger" >Mover</button>
-                          <button class="btn btn-danger">Visualizar</button> 
+                        <a href="../html/CadastroInsumo.html">  <button class="btn btn-danger">Incluir</button></a>
+                       
+                         <a href="../html/ListaInsumo.html"><button class="btn btn-danger">Visualizar</button> </a>
                         
                        </ul>
                        <a href="#" class="name">Insumo</a>
@@ -101,7 +101,7 @@
                  <img src="../imagens/meuquilino4.png"  alt="" id="cintia">
                  <div class="team_content">
                      <ul>
-                        <a href="Cultura_Talhao.html"><button class="btn btn-danger">Incluir</button></a>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#chamareitu" >Incluir</button>
                         <a href="Plantacao_talhao.html"><button class="btn btn-danger" >Mover</button></a>
                        <a href="#" ><button class="btn btn-danger">Visualizar</button> </a>
                      </ul>
@@ -115,13 +115,44 @@
             </div>
         </div>
     </div>
+
+
     
   </div><br><br><br><br>
   
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Modal pequeno</button>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
   
   </div>
   
   </section><br><br>
+
+  <div class="modal" tabindex="-1" role="dialog" id="chamareitu">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Título do modal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Texto do corpo do modal, é aqui.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar mudanças</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

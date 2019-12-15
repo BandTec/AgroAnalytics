@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/edicaoLogin.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
     <title>Cadastro</title>
 
 <!-- BOOTSTRAP -->
@@ -31,7 +31,7 @@
 
 			<br><br><br><br><br><br><br>
 		<center>
-			<p> <img src="../css/imagens/simp.png" alt="some text" dog” align=”middle> </p>
+			<p> <img src="../imagens/simp2.png" width="300px" height="50px" alt="some text" dog” align=”middle> </p>
 		</center>
 		<center>	
 			<h1>Cadastre-se</h1>
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-md-3">
 					<label>Data de Nascimento</label><br>
-					<input class="form-control" type="text" id="data" name="nicknameUsuario" max="10" placeholder="30/11/1998" style="width: 120%;">
+					<input class="form-control" type="text" id="data" name="dataNasc" max="10" placeholder="30/11/1998" style="width: 120%;">
 				</div>
 			</div><br>
 
@@ -94,7 +94,7 @@
 				</div>
 				<div class="col-md-3">
 					<label>Cidade</label><br>
-					<input class="form-control" style="width: 120%;" type="text" id='cidade' placeholder="Bahia" required/>
+					<input class="form-control" style="width: 120%;" type="text" id='cidade' name="cidadeUsuario" placeholder="Bahia" required/>
 				</div>
 			</div><br>
 
@@ -113,10 +113,11 @@
 			<!-- BOTÕES -->
 			<div class="row">
 				<div class="col-md-offset-3 col-md-3">
-					<input type="button" onclick="cancelarForm()" name="cancelar" value="Cancelar" class="botao_cadastra" >
+					<input type="button"  class="botao_padrao" id="cadastrar-usuario" value="Cadastrar" >
 				</div>
 				<div class="col-md-3">
-					<input type="button"  class="botao_padrao" value="Cadastrar" onclick="return validacao()">
+					<input type="button" name="cancelar" value="Cancelar" id="cancelar" class="botao_cadastra" >
+					
 				</div>
 			</div>
 		  <br><br>
@@ -125,6 +126,8 @@
     </form>
 
 </body>
+<script src="../js/cadastroUsuario.js"></script>
+  
 
 </html>
 

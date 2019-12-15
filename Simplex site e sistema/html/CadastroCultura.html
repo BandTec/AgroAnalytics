@@ -12,11 +12,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/bootstrap-notify.js"></script>
-<script src="../js/bootstrap-notify.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../css/bootstrap.min.js"></script>
 <script src="../js/jquery.mask.min.js"></script>
-<script src="../js/imputmask.min.js"></script>
+
 
 
     <!-- CSS principal do SmartMenus (obrigatório) -->
@@ -129,7 +127,7 @@
 
               $(document).ready(function () {
              
-               $('#precoUnitario').mask('#.##0,00', {reverse: true});
+               $('#precoUnitario').mask('#.##0.00', {reverse: true});
               $('#cicloMaturacao').mask('000');
               
           })   
@@ -179,17 +177,22 @@
         </div>
         </div><br>-->
 
-        <!-- BOTÕES -->
-        <div class="row">
-          <div class="col-md-offset-3 col-md-3">
-            <input type="button"  class="botao_padrao" value="Cadastrar" id="botao-criar-insumo" >
-        </div>
+          <!-- BOTÕES -->
+    <div class="row">
+      <div class="col-md-offset-3 col-md-3">
+        <input type="button" class="botao_padrao" value="Cadastrar" id="cadastrar-cultura">
       </div>
-      <div class="row">
-          <div class="col-md-3">
-            <input type="button" onclick="cancelarForm()" name="cancelar" value="Cancelar" class="botao_cadastra">
-          </div>
-        </div> 
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="button" onclick="cancelarForm()" name="cancelar" value="Cancelar" class="botao_cadastra">
+      </div>
+    </div>
+
+
+    </div>
+    </div>
       </form>
   
     <script>
@@ -228,7 +231,7 @@ return v.replace(/\D/g,"") //Remove tudo o que não é dígito
   
 
     <!-- Plugin jQuery SmartMenus -->
-    <script type="text/javascript" src="../jquery.smartmenus.js"></script>
+    <script type="text/javascript" src="../js/jquery.smartmenus.js"></script>
 
     <!-- Iniciação jQuery do SmartMenus -->
     <script type="text/javascript">
@@ -242,7 +245,7 @@ return v.replace(/\D/g,"") //Remove tudo o que não é dígito
 
 
   </body>
-  <script src="cadastroCultura.js"></script>
+  <script src="../js/cadastroCultura.js"></script>
   
 </html>
 

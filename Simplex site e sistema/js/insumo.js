@@ -2,7 +2,7 @@ var botaoCriarInsumo = document.querySelector("#botao-criar-insumo");
 
 botaoCriarInsumo.addEventListener("click", function() {
 
-    var form = document.querySelector("#form-cadastrar-insumo");
+    var form = document.querySelector("#formuser");
 
     var insumo = {
         nome: form.nome.value,
@@ -10,6 +10,7 @@ botaoCriarInsumo.addEventListener("click", function() {
         tempoAcao: form.tempo.value,
         quantRecomendada: form.recomendacao.value
     }
+
 
     var xhr = new XMLHttpRequest();
 
@@ -23,11 +24,11 @@ botaoCriarInsumo.addEventListener("click", function() {
 
         var resposta = xhr.responseText;
 
-        var insumo = JSON.parse(resposta);
+        var cultura = JSON.parse(resposta);
 
         console.log(resposta);
 
-        console.log(insumo.id);
+        console.log(cultura.id);
 
         alert("Cadastrado com sucesso!");
 

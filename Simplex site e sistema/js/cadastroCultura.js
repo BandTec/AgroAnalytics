@@ -14,7 +14,8 @@ botaoCriarCulturas.addEventListener("click", function() {
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "http://localhost:8080/culturas?id=" + culturas.id);
+    xhr.open("POST", "http://localhost:8080/culturas");
+    //xhr.open("POST", "http://localhost:8080/culturas?id=" + culturas.id);
 
     xhr.setRequestHeader("Content-type", "application/json");
 

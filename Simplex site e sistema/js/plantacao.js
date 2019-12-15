@@ -12,22 +12,30 @@ botaoPlantacao.addEventListener("click", function() {
 
     event.preventDefault();
 
-    var form = document.querySelector("#form-cadastro-talhao");
+    var form = document.querySelector("#formuser");
 
-    var valorTalhoes = form.talhoes.value;
+    var valorTalhoes = form.codTalhao.value;
 
-    var valorInsumos = form.insumos.value;
+    var valorInsumos = form.codInsumo.value;
 
     var vetorTalhoes = valorTalhoes.split(";");
 
     var vetorInsumos = valorInsumos.split(";");
 
+    var dataCriacaoPlant = form.dataCriacao.value;
+
+    var vetorData = dataCriacaoPlant.split("-");
+
+    var dataFormatada = "";
+
+    dataFormatada = vetorData[2] + "/" + vetorData[1] + "/" + vetorData[0];
+
     var plantacao = {
 
-        dataCriacao: form.dataCriacao.value,
+        dataCriacao:dataFormatada,
 
         cultura: {
-            id: form.cultura.value
+            id: form.codCultura.value
         },
         talhoes: [
 
@@ -61,6 +69,9 @@ botaoPlantacao.addEventListener("click", function() {
 
     })
 
+    
+    
+
     console.log(plantacao);
 
     var xhr = new XMLHttpRequest();
@@ -77,7 +88,9 @@ botaoPlantacao.addEventListener("click", function() {
 
         var plantacao = JSON.parse(resposta);
 
-        alert(plantacao.nome + "A cultura foi criada");
+       
+
+        alert("A plantação foi criada com sucesso!");
 
     });
 

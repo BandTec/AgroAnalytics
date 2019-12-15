@@ -13,15 +13,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="../js/bootstrap-notify.js"></script>
-  <script src="../js/bootstrap-notify.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="../css/bootstrap.min.js"></script>
   <script src="../js/jquery.mask.min.js"></script>
-  <script src="../js/imputmask.min.js"></script>
-
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+  <script src="imputmask.min.js"></script>
 
 
   <!-- CSS principal do SmartMenus (obrigatório) -->
@@ -134,43 +128,6 @@
 
     <script>
 
-$(function() {
-    $("#dataCriacao").datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-    });
-});
-
-
-$(function() {
-    $("#dataCriacao").datepicker({
-        showOtherMonths: true,
-        selectOtherMonths: true
-    });
-});
-
-
-$(function() {
-    $("#dataCriacao").datepicker({
-        changeMonth: true,
-        changeYear: true
-    });
-});
-
-    
-    $(function() {
-              $( "#dataCriacao" ).datepicker({
-                    showButtonPanel:true
-    
-                  });
-              
-          });
-
-
         $(document).ready(function () {
        
         
@@ -189,7 +146,7 @@ $(function() {
     <div class="row">
         <div class="col-md-3 col-md-offset-3">
           <label>Data de Criação</label><br>
-          <input class="form-control" type="text" id="dataCriacao" name="dataCriacao" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 120%;">
+          <input class="form-control" type="date" id="dataCriacao" name="dataCriacao" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 120%;">
         </div>
         <div class="col-md-3">
           <label>Código da Cultura</label><br>
@@ -264,7 +221,7 @@ $(function() {
 
 
   <!-- Plugin jQuery SmartMenus -->
-  <script type="text/javascript" src="../jquery.smartmenus.js"></script>
+  <script type="text/javascript" src="../js/jquery.smartmenus.js"></script>
 
   <!-- Iniciação jQuery do SmartMenus -->
   <script type="text/javascript">
@@ -278,6 +235,6 @@ $(function() {
 
 
 </body>
-<script src="plantacao.js"></script>
+<script src="../js/plantacao.js"></script>
 
 </html>
