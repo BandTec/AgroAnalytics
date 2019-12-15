@@ -33,6 +33,7 @@ botaoPlantacao.addEventListener("click", function() {
     var plantacao = {
 
         dataCriacao:dataFormatada,
+        quantLitrosAplicados: form.qtdLitros.value,
 
         cultura: {
             id: form.codCultura.value

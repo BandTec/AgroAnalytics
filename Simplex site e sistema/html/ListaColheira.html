@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Lista de insumos</title>
+  <title>Lista de Colheitas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Signika:400,600'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 <!-- HOVER EFFECTS (da hora) -->
 <link rel="stylesheet" href="../css/hover-min.css">
-<link rel="stylesheet" href="../css/css/styleTelas.css">
+<link rel="stylesheet" href="../css/styleTelas.css">
 <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -37,7 +37,7 @@
 <!-- Tema do menu "sm-blue" (opcional, você também pode usar seu próprio CSS) -->
 <link href="../css/sm-blue.css" rel="stylesheet" type="text/css" />
 
-<script src='../js/lissta-insumos.js'></script>
+<script src='../js/lista_colheita.js'></script>
 <script src='../js/delete.js'></script>
 
 <script type="text/javascript" src="../js/jquery.smartmenus.js"></script>
@@ -80,7 +80,7 @@
 
           <!-- Definição de menu de amostra -->
           <ul id="main-menu" class="sm sm-blue"><br>
-              <li><img src="../imagens/simp2.png" width="300px"  style="top: auto;" alt=""></li>
+              <li><img src="../imagens/Simp2.png" width="300px"  style="top: auto;" alt=""></li>
               
               <li><a href="http://www.smartmenus.org/">Início</a></li>
               
@@ -142,14 +142,14 @@
                   <!-- O mega menu suspenso -->
                   <div style="width:400px;max-width:100%;">
                     <div style="padding:5px 24px;">
-                      <p><strong>Guia de tela<br></strong>Nessa rotina você ira visualizar as suas listas de insumos, mostrando o ID do insumo, o nome, o tipo do insumo, tempo de ação e a quantidade recomendada</p>
+                      <p><strong>Guia de tela<br></strong>Nessa rotina você ira cadastrar as sua culturas, informando o nome, o tipo do produto, preço unitario e o seu ciclo de maturação</p>
                     </div>
                   </div>
                 </li>
               </ul>
             </li>
             
-            <img class="circle" src="../imagens/mei.jpg" alt="some text" width=15 height=110 style="left: 0px;">
+            <img class="circle" src="../imagens/mei.jpg" alt="some text" width=15 height=110 style="left: 0px;"> 
               
               <b><p class="nome">Alfredo Neves</p></b>
     
@@ -162,20 +162,19 @@
         <span id="topo"></span>
 
         <div class="text-center">
-            <h1>Lista de insumos</h1>
+            <h1>Lista de Colheita</h1>
         </div>
 
         <div class="container">
             <table  class="estrutura_table table table-spriped table-bordered" id="tabela-culturas" style="width:100%">
             <thead>
                 <tr>
-                    <th>id_insumos</th>
-                    <th>Nome</th>
-                    <th>Tipo</th>
-                    <th>Tempo de ação</th>
-                    <th>Quantidade recomendada</th>
-                    <th>Volume do recipiente</th>
-              
+                    <th>Código da plantação</th>
+                    <th>QTD Caixas</th>
+                    <th>Data da colheita</th>
+                    <th>Código da cultura</th>
+                    <th>Preço da colheita</th>
+               
                 </tr>
             </table>
         </div>
@@ -227,4 +226,4 @@
 
   };
 </script>
-<script src="../js/form.js"></script>
+<script src="../imagens/form.js"></script>

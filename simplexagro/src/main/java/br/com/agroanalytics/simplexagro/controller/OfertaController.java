@@ -1,6 +1,5 @@
 package br.com.agroanalytics.simplexagro.controller;
 
-import java.lang.module.FindException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Stack;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.agroanalytics.simplexagro.domain.Colheita;
 import br.com.agroanalytics.simplexagro.domain.Oferta;
 import br.com.agroanalytics.simplexagro.repository.ColheitaRepository;
 import br.com.agroanalytics.simplexagro.repository.OfertaRepository;
@@ -61,15 +59,15 @@ public class OfertaController {
 			
 			colheitaRepository.mudarEstado(colheitaRepository.buscarCaixas(oferta.getIdColheita())- oferta.getQuantCaixasCompradas(), oferta.getIdColheita());
 			
-			return ResponseEntity.status(HttpStatus.OK).body("Negócio fechado!");
+			return ResponseEntity.status(HttpStatus.OK).body("Negï¿½cio fechado!");
 
 		}else if(!ofertaRepository.existsById(oferta.getId())) {
 
-		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Oferta com id's inválidos!");
+		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Oferta com id's invï¿½lidos!");
 		
 		}else {
 			
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Lance com id's inválidos!");
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Lance com id's invï¿½lidos!");
 
 			
 		}

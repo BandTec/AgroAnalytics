@@ -7,6 +7,7 @@ botaoCriarInsumo.addEventListener("click", function() {
     var insumo = {
         nome: form.nome.value,
         tipo: form.tipo.value,
+        volumeRecipiente: form.volumeRecipiente.value,
         tempoAcao: form.tempo.value,
         quantRecomendada: form.recomendacao.value
     }

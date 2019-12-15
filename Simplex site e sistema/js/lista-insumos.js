@@ -17,7 +17,8 @@ function populaTabela() {
             objLista[i].nome,
             objLista[i].tipo,
             objLista[i].tempoAcao,
-            objLista[i].quantRecomendada
+            objLista[i].quantRecomendada,
+            objLista[i].volumeRecipiente
         ]).draw();
 
     }
