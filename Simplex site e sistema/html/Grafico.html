@@ -113,7 +113,7 @@
               <!-- O mega menu suspenso -->
               <div style="width:400px;max-width:100%;">
                 <div style="padding:5px 24px;">
-                  <p><strong>Guia de tela<br></strong>Nessa rotina você ira cadastrar as sua culturas, informando o nome, o tipo do produto, preço unitario e o seu ciclo de maturação</p>
+                  <p><strong>Guia de tela<br></strong>Nessa rotina você ira visualizar os gráficos de insumos.</p>
                 </div>
               </div>
             </li>
@@ -127,80 +127,8 @@
       </ul>
     </nav>
 
-    <script>
-
-$(function() {
-    $("#dataColheita").datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-    });
-});
-
-
-$(function() {
-    $("#dataColheita").datepicker({
-        showOtherMonths: true,
-        selectOtherMonths: true
-    });
-});
-
-
-$(function() {
-    $("#dataColheita").datepicker({
-        changeMonth: true,
-        changeYear: true
-    });
-});
-
     
-    $(function() {
-              $( "#dataColheita" ).datepicker({
-                    showButtonPanel:true
-    
-                  });
-              
-          });
-
-
-    function mascara(o,f){
-
-
-v_obj=o
-v_fun=f
-setTimeout("execmascara()",1)
-}
-
-function execmascara(){
-v_obj.value=v_fun(v_obj.value)
-}
-
-
-function soLetras(v){
-return v.replace(/\d/g,"") //Remove tudo o que não é Letra
-}
-
-function soLetrasMA(v){
-v=v.toUpperCase() //Maiúsculas
-return v.replace(/\d/g,"") //Remove tudo o que não é Letra ->maiusculas
-}
-
-function soLetrasMI(v){
-v=v.toLowerCase() //Minusculas
-return v.replace(/\d/g,"") //Remove tudo o que não é Letra ->minusculas
-}
-
-function soNumeros(v){
-return v.replace(/\D/g,"") //Remove tudo o que não é dígito
-}
-    
-    </script>
-
-  
-
+ 
     <!-- Plugin jQuery SmartMenus -->
     <script type="text/javascript" src="../js/jquery.smartmenus.js"></script>
 
@@ -214,9 +142,7 @@ return v.replace(/\D/g,"") //Remove tudo o que não é dígito
     	});
     </script>
     
-    <canvas class="grafico" id="grafico-investimento-anual"></canvas>
-    <canvas class="grafico1" id="grafico-insumos-anual"></canvas>
-  
+    <canvas class="grafico" id="grafico-insumos"></canvas>
   </body>
 
   <script src="../js/financeiro.js"></script>
