@@ -9,7 +9,7 @@ body{
 }
 
 
-/*estilo da fonte dos menus*/
+/*estilo da font dos menus*/
 .sm-blue a, .sm-blue a:hover, .sm-blue a:focus, .sm-blue a:active {
   padding: 10px 20px;
   /* make room for the toggle button (sub indicator) */
@@ -18,7 +18,7 @@ body{
   background-image: linear-gradient(to bottom, #32c87d, #32c87d);
   color: #fff;
   font-family: "PT Sans Narrow", "Arial Narrow", Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: bold;
   line-height: 30px;
   text-decoration: none;
@@ -404,28 +404,21 @@ body{
   height: 70px;
   overflow: hidden;
   position: relative;
-  left: 1065px;
+  left: 1100px;
   top: -3px;
 }
 
 
 
-.nome{
+.nome {
   width: 150px;
   height: 20px;
   overflow: hidden;
   position: relative;
-  left: 1030px;
+  left: 980px;
   top: -px;
   color: white;
   font-size: 20px;
-}
-
-.circle img {
-  position: absolute;
-  bottom: 5;
-  width: 100%;
-  top: 20;
 }
 
 .selector {

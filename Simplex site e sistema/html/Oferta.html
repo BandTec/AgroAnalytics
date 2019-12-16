@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Oferta</title>
+    <title>Cadastro de Cultura</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="../css/edicaoLogin.css">
+    
 
 <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../js/bootstrap-notify.js"></script>
-<script src="../js/bootstrap-notify.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="../css/bootstrap.min.js"></script>
 <script src="../js/jquery.mask.min.js"></script>
-<script src="../js/imputmask.min.js"></script>
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 
 
     <!-- CSS principal do SmartMenus (obrigatório) -->
@@ -44,56 +39,39 @@
       <ul id="main-menu" class="sm sm-blue"><br>
           <li><img src="../imagens/Simp2.png" width="300px"  style="top: auto;" alt=""></li>
           
-          <li><a href="http://www.smartmenus.org/">Início</a></li>
+          <li><a href="">Início</a></li>
           
-        <li><a href="http://www.smartmenus.org/about/">Estoque</a>
-          <ul>
-            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
-            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
-            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
-          </ul>
-        </li>
+       
+        
+          <li><a href="#">Insumo</a>
+            <ul>
+              <li><a href="CadastroInsumo.html">Incluir</a></li>
 
-        <li><a href="http://www.smartmenus.org/about/">Financeiro</a>
-          <ul>
-            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
-            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
-            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
-          </ul>
-        </li>
-
-        <li><a href="http://www.smartmenus.org/about/">Insumo</a>
-          <ul>
-            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
-            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
-            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
-          </ul>
-        </li>
+              <li><a href="#">Visualizar</a>
+                <ul>
+                  <li><a href="ListaInsumo.html">Lista de insumo</a></li>
+                  <li><a href="Grafico.html">Grafico</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
 
         <li><a href="#">Safra</a>
           <ul>
             <li><a href="#">Incluir</a>
             <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Mover</a>
-            <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
+                <li><a href="CadastroPlantacao.html">Plantação</a></li>
+                <li><a href="CadastroTalhão.html">Talhão</a></li>
+                <li><a href="CadastroCultura.html">Cultura</a></li>
+                <li><a href="CadastroColheita.html">Colheita</a></li>
               </ul>
             </li>
             <li><a href="#">Visualizar</a>
               <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
+                <li><a href="ListaPlantacao.html">Plantação</a></li>
+                <li><a href="ListaTalhao.html">Talhão</a></li>
                 <li><a href="listaCultura.html">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
+                <li><a href="ListaColheira.html">Colheita</a></li>
               </ul>
             </li>
           </ul>
@@ -128,58 +106,75 @@
        
          
 
-    
+          <script>
+
+              $(document).ready(function () {
+             
+               $('#precoUnitario').mask('#.##0.00', {reverse: true});
+              $('#cicloMaturacao').mask('000');
+              
+          })   
+                  </script>
         <br><br><br>
       
       <center>	
-        <h1>Cadastro de Colheita</h1>
+        <h1>Realize um lance</h1>
       </center>
   
         <!-- NOME -->
-        <div class="row">
-          <div class="col-md-3 col-md-offset-3">
-            <label>Código Plantação</label><br>
-            <input class="form-control" type="text" id="idPlantacao" name="idPlantacao" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 120%;">
-          </div>
-          <div class="col-md-3">
-            <label>QTD Caixas</label><br>
-            <input class="form-control" type="text" id="qtdCaixas" name="qtdCaixas" max="10" placeholder="" style="width: 120%;">
-          </div>
-        </div><br>
 
         <div class="row">
-          <div class="col-md-3 col-md-offset-3">
-            <label>Preço</label><br>
-            <input class="form-control" type="text" id="preco" name="preco" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 120%;">
-          </div>
-          <div class="col-md-3">
-            <label>Data da colheita</label><br>
-            <input class="form-control" type="date" id="dataColheita" name="dataColheita" max="10" placeholder="" style="width: 120%;">
-          </div>
-        </div><br>
-
-        
-
-        <!-- BOTÕES -->
-        <div class="row">
-          <div class="col-md-offset-3 col-md-3">
-            <input type="button"  class="botao_padrao" value="Cadastrar" id="botao-criar-colheita" >
+          <div class="col-md-6 col-md-offset-3" style="height: 50%;">
+            <label>QTD Caixas compradas</label><br>
+            <input class="form-control" type="text" id="tipoCultura" name="tipoCultura" onkeypress="mascara(this,soLetras)" placeholder="" style="width: 107%;"required>
         </div>
-      </div>
-      <div class="row">
-          <div class="col-md-3">
-            <input type="button" onclick="cancelarForm()" name="cancelar" value="Cancelar" class="botao_cadastra">
-          </div>
-        </div> 
-      </form>
+        </div><br>
 
+        <div class="row" style="padding:0px">
+          <div class="col-md-3 col-md-offset-3">
+            <label>Código da colheita</label><br>
+            <input class="form-control" type="text" id="precoUnitario" name="precoUnitario" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 117%;">
+          </div>
+          <div class="col-md-3">
+            <label>Valor da oferta</label><br>
+            <input class="form-control" type="text" id="cicloMaturacao" name="cicloDeMaturacao" max="10" placeholder="" style="width: 117%;">
+          </div>
+        </div><br><br><br>
+       
+  
+        <!-- CIDADE e ESTADO -->
+             
+  
+        <!-- RUA -->
+        <!--<div class="row">
+          <div class="col-md-6 col-md-offset-3" style="height: 50%;">
+          <label>Rua:</label><br>
+          <input class="form-control" type="text" id="rua" name="nomeUsuario" placeholder="rua" style="width: 110%;"
+           required>
+        </div>
+        </div><br>-->
+
+          <!-- BOTÕES -->
+    <div class="row">
+      <div class="col-md-offset-3 col-md-3">
+        <input type="button" class="botao_padrao" value="Cadastrar" id="cadastrar-cultura">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <input type="button" onclick="cancelarForm()" name="cancelar" value="Cancelar" class="botao_cadastra">
+      </div>
+    </div>
+
+
+    </div>
+    </div>
+      </form>
   
     <script>
-
-
+    
     function mascara(o,f){
-
-
 v_obj=o
 v_fun=f
 setTimeout("execmascara()",1)
@@ -227,7 +222,7 @@ return v.replace(/\D/g,"") //Remove tudo o que não é dígito
 
 
   </body>
-  <script src="../js/colheita.js"></script>
+  <script src="../js/cadastroCultura.js"></script>
   
 </html>
 
