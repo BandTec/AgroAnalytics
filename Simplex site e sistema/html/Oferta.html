@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Cadastro de Cultura</title>
+    <title>Oferta</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -39,62 +39,25 @@
       <ul id="main-menu" class="sm sm-blue"><br>
           <li><img src="../imagens/Simp2.png" width="300px"  style="top: auto;" alt=""></li>
           
-          <li><a href="">Início</a></li>
+          <li><a href="index.html">Voltar ao site</a></li>
           
        
         
-          <li><a href="#">Insumo</a>
-            <ul>
-              <li><a href="CadastroInsumo.html">Incluir</a></li>
+          <li><a href="#">Visualizar produtos disponíveis</a></li>
+          
 
-              <li><a href="#">Visualizar</a>
-                <ul>
-                  <li><a href="ListaInsumo.html">Lista de insumo</a></li>
-                  <li><a href="Grafico.html">Grafico</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-        <li><a href="#">Safra</a>
-          <ul>
-            <li><a href="#">Incluir</a>
-            <ul>
-                <li><a href="CadastroPlantacao.html">Plantação</a></li>
-                <li><a href="CadastroTalhão.html">Talhão</a></li>
-                <li><a href="CadastroCultura.html">Cultura</a></li>
-                <li><a href="CadastroColheita.html">Colheita</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Visualizar</a>
-              <ul>
-                <li><a href="ListaPlantacao.html">Plantação</a></li>
-                <li><a href="ListaTalhao.html">Talhão</a></li>
-                <li><a href="listaCultura.html">Cultura</a></li>
-                <li><a href="ListaColheira.html">Colheita</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
         <li><a href="#">Ajuda</a>
           <ul class="mega-menu">
             <li>
               <!-- O mega menu suspenso -->
               <div style="width:400px;max-width:100%;">
                 <div style="padding:5px 24px;">
-                  <p><strong>Guia de tela<br></strong>Nessa rotina você ira cadastrar as sua culturas, informando o nome, o tipo do produto, preço unitario e o seu ciclo de maturação</p>
+                  <p><strong>Guia de tela<br></strong>Após escolher um produto na lista, você podera leiloar um produto preenchendo a lista abaixo, informando a quantidade de caixas, o código da colheita escolhida e o valor da sua oferta</p>
                 </div>
               </div>
             </li>
           </ul>
-        </li>
-        
-        <img class="circle" src="../imagens/mei.jpg" alt="some text" width=15 height=110 style="left: 0px;"> 
-          
-          <b><p class="nome">Alfredo Neves</p></b>
-
-       
-         
+        </li>  
       </ul>
     </nav><br><br><br><br>
 
@@ -126,18 +89,18 @@
         <div class="row">
           <div class="col-md-6 col-md-offset-3" style="height: 50%;">
             <label>QTD Caixas compradas</label><br>
-            <input class="form-control" type="text" id="tipoCultura" name="tipoCultura" onkeypress="mascara(this,soLetras)" placeholder="" style="width: 107%;"required>
+            <input class="form-control" type="number" id="quant_caixas_compradas" name="caixas" style="width: 107%;"required>
         </div>
         </div><br>
 
         <div class="row" style="padding:0px">
           <div class="col-md-3 col-md-offset-3">
             <label>Código da colheita</label><br>
-            <input class="form-control" type="text" id="precoUnitario" name="precoUnitario" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 117%;">
+            <input class="form-control" type="text" id="id_colheita" name="colheita" maxlength="11" placeholder="" style="width: 117%;">
           </div>
           <div class="col-md-3">
             <label>Valor da oferta</label><br>
-            <input class="form-control" type="text" id="cicloMaturacao" name="cicloDeMaturacao" max="10" placeholder="" style="width: 117%;">
+            <input class="form-control" type="number" id="valor_oferta" name="oferta" max="10" placeholder="" style="width: 117%;">
           </div>
         </div><br><br><br>
        
@@ -157,7 +120,7 @@
           <!-- BOTÕES -->
     <div class="row">
       <div class="col-md-offset-3 col-md-3">
-        <input type="button" class="botao_padrao" value="Cadastrar" id="cadastrar-cultura">
+        <input type="button" class="botao_padrao" value="Enviar propostas" id="realizar_oferta">
       </div>
     </div>
 
@@ -222,7 +185,7 @@ return v.replace(/\D/g,"") //Remove tudo o que não é dígito
 
 
   </body>
-  <script src="../js/cadastroCultura.js"></script>
+  <script src="../js/oferta.js"></script>
   
 </html>
 
