@@ -1,18 +1,30 @@
-var botaoCriarCulturas = document.querySelector("#botao-cadastrar-colheita");
+var botaoCriarCulturas = document.querySelector("#botao-criar-colheita");
 
 botaoCriarCulturas.addEventListener("click", function() {
 
     event.preventDefault();
 
-    var form = document.querySelector("#cadastro-colheita");
+    var form = document.querySelector("#formuser");
+
+
+
+    var dataCriacaoCol = form.dataColheita.value;
+
+    var vetorData = dataCriacaoCol.split("-");
+
+    var dataFormatada = "";
+
+    dataFormatada = vetorData[2] + "/" + vetorData[1] + "/" + vetorData[0];
+
+
 
     var colheitas = {
         plantacao : {
         id : form.idPlantacao.value
     },
-        dataColheita: form.dataColheita.value,
-        precoCaixa: form.precoCaixa.value,
-        quantCaixas: form.quantCaixas.value
+        dataColheita: dataFormatada,
+        caixas: form.qtdCaixas.value,
+        precoColheita: form.preco.value
     }
 
 
@@ -38,9 +50,10 @@ botaoCriarCulturas.addEventListener("click", function() {
 
         console.log("Esta merda");
 
-        var culturas = JSON.parse(resposta);
-
+        
         alert('colheita foi criado, talhões liberados')
+
+   
 
     });
 

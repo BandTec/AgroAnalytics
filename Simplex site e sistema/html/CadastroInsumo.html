@@ -15,8 +15,8 @@
 <script src="../js/bootstrap-notify.js"></script> 
 <script src="../js/bootstrap-notify.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery.mask.min.js"></script> 
-<script src="../js/imputmask.min.js"></script> 
+<!-- <script src="../js/jquery.mask.min.js"></script> 
+<script src="../js/imputmask.min.js"></script> -->
 
 
     <!-- CSS principal do SmartMenus (obrigatório) -->
@@ -41,56 +41,39 @@
       <ul id="main-menu" class="sm sm-blue"><br>
           <li><img src="../imagens/simp2.png" width="300px"  style="top: auto;" alt=""></li>
           
-          <li><a href="#">Início</a></li>
+          <li><a href="MenuPrincipal.html">Início</a></li>
           
-        <li><a href="#">Estoque</a>
-          <ul>
-            <li><a href="#">Incluir</a></li>
-            <li><a href="#">Mover</a></li>
-            <li><a href="#">Visualizar</a></li>
-          </ul>
-        </li>
+        
+     
+          <li><a href="#">Insumo</a>
+            <ul>
+              <li><a href="CadastroInsumo.html">Incluir</a></li>
 
-        <li><a href="#">Financeiro</a>
-          <ul>
-            <li><a href="#">Incluir</a></li>
-            <li><a href="#">Mover</a></li>
-            <li><a href="#">Visualizar</a></li>
-          </ul>
-        </li>
-
-        <li><a href="#">Insumo</a>
-          <ul>
-            <li><a href="#">Incluir</a></li>
-            <li><a href="#">Mover</a></li>
-            <li><a href="#">Visualizar</a></li>
-          </ul>
-        </li>
+              <li><a href="#">Visualizar</a>
+                <ul>
+                  <li><a href="ListaInsumo.html">Lista de insumo</a></li>
+                  <li><a href="Grafico.html">Grafico</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
 
         <li><a href="#">Safra</a>
           <ul>
             <li><a href="#">Incluir</a>
             <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Mover</a>
-            <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
+                <li><a href="CadastroPlantacao.html">Plantação</a></li>
+                <li><a href="CadastroTalhão.html">Talhão</a></li>
+                <li><a href="CadastroCultura.html">Cultura</a></li>
+                <li><a href="CadastroColheita.html">Colheita</a></li>
               </ul>
             </li>
             <li><a href="#">Visualizar</a>
               <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
+                <li><a href="ListaPlantacao.html">Plantação</a></li>
+                <li><a href="ListaTalhao.html">Talhão</a></li>
+                <li><a href="ListaCultura.html">Cultura</a></li>
+                <li><a href="ListaColheira.html">Colheita</a></li>
               </ul>
             </li>
           </ul>
@@ -125,7 +108,7 @@
        
          
 
-          <script>
+          <!--<script>
 
               $(document).ready(function () {
              
@@ -133,7 +116,7 @@
               $('#cicloMaturacao').mask('000');
               
           })   
-                  </script>
+                  </script>-->
         <br><br><br>
       
       <center>	
@@ -146,28 +129,34 @@
             <form id="form-cadastrar-insumo" name="forcult">
 
             <label for="input-nome-insumo">Nome</label><br>
-            <input class="form-control" type="text" id="input-nome-insumo" name="nome" maxlength="20" onkeypress="mascara(this,soLetras)" minlength="10" placeholder="" style="width: 110%;"required>	 
+            <input class="form-control" type="text" id="input-nome-insumo" name="nome" maxlength="20" onkeypress="mascara(this,soLetras)" minlength="10" placeholder="" style="width: 107%;"required>	 
           </div>
 
         </div><br>
 
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3" style="height: 50%;">
-            <label for="input-tipo-insumo">Tipo</label><br>
-            <input class="form-control" type="text" id="tipo" name="tipo" onkeypress="mascara(this,soLetras)" placeholder="" style="width: 110%;"required>
+        <div class="row" style="padding:0px">
+          <div class="col-md-3 col-md-offset-3">
+            <label for="input-tempo-acao">Tipo</label><br>
+            <input class="form-control" type="text" id="tipo" name="tipo"  maxlength="11" placeholder="" style="width: 117%;">
         </div>
+        <div class="col-md-3">
+            <label for="input-quant-recomendada">Volume do recipiente</label><br>
+            <input class="form-control" type="text" id="volumeRecipiente" name="volumeRecipiente" onkeypress='return filtroTeclas(event)' max="10" placeholder="" style="width: 117%;">
+          </div>
         </div><br>
 
-        <div class="row">
+        <div class="row" style="padding:0px">
           <div class="col-md-3 col-md-offset-3">
             <label for="input-tempo-acao">Tempo de ação</label><br>
-            <input class="form-control" type="text" id="input-tipo-insumo" name="tempo" onkeypress='return filtroTeclas(event)' maxlength="11" placeholder="" style="width: 120%;">
+            <input class="form-control" type="text" id="tempoAcao" name="tempo" onkeypress='return filtroTeclas(event)' maxlength="11" placeholder="" style="width: 117%;">
         </div>
         <div class="col-md-3">
             <label for="input-quant-recomendada">Qtd. recomendada</label><br>
-            <input class="form-control" type="text" id="recomendacao" name="recomendacao" onkeypress='return filtroTeclas(event)' max="10" placeholder="" style="width: 120%;">
+            <input class="form-control" type="text" id="recomendacao" name="recomendacao" onkeypress='return filtroTeclas(event)' max="10" placeholder="" style="width: 117%;">
           </div>
         </div><br>
+
+        
      
           <!-- BOTÕES -->
         <div class="row">

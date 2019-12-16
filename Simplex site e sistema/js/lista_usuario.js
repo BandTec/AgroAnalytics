@@ -1,6 +1,9 @@
 function populaTabela() {
+
     var httpusuario = new XMLHttpRequest();
-    httpusuario.open("GET", "http://localhost:8080/culturas", false);
+
+    httpusuario.open("GET", "http://localhost:8080/culturas",false);
+    
     httpusuario.send(null);
 
     var objLista = JSON.parse(httpusuario.responseText);
@@ -10,14 +13,15 @@ function populaTabela() {
     for (var i = 0; i < objLista.length; i++) {
 
         tabela.row.add([
-            objLista[i].idUsuario,
-            objLista[i].nm_Usuario,
-            objLista[i].CPF,
-            objLista[i].telefone,
-            objLista[i].email,
-            objLista[i].nm_loc,
-            objLista[i].nm_grupo,
-            '<a href="#"><span class="glyphicon glyphicon-pencil"></span> Editar</a>'
+            objLista[i].id,
+            objLista[i].nome,
+            objLista[i].tipo,
+            objLista[i].precoUnitario,
+            objLista[i].cicloDiasMaturacao,
+
+            '<a href="#"><span class="glyphicon glyphicon-pencil"></span> Editar</a>',
+            `<button onclick="deletaCultura(${objLista[i].id})">Excluir</button>`
+            
         ]).draw();
 
     }

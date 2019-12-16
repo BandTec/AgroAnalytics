@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Cadastro de Cultura</title>
+    <title>Cadastro de Colheita</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="../css/edicaoLogin.css">
-
-   
-    
 
 <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -47,56 +44,37 @@
       <ul id="main-menu" class="sm sm-blue"><br>
           <li><img src="../imagens/Simp2.png" width="300px"  style="top: auto;" alt=""></li>
           
-          <li><a href="http://www.smartmenus.org/">Início</a></li>
-          
-        <li><a href="http://www.smartmenus.org/about/">Estoque</a>
-          <ul>
-            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
-            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
-            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
-          </ul>
-        </li>
+          <li><a href="">Início</a></li>
+        
+          <li><a href="#">Insumo</a>
+            <ul>
+              <li><a href="CadastroInsumo.html">Incluir</a></li>
 
-        <li><a href="http://www.smartmenus.org/about/">Financeiro</a>
-          <ul>
-            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
-            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
-            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
-          </ul>
-        </li>
-
-        <li><a href="http://www.smartmenus.org/about/">Insumo</a>
-          <ul>
-            <li><a href="http://www.smartmenus.org/about/themes/">Incluir</a></li>
-            <li><a href="http://vadikom.com/about/#vasil-dinkov">Mover</a></li>
-            <li><a href="http://www.smartmenus.org/about/vadikom/">Visualizar</a></li>
-          </ul>
-        </li>
+              <li><a href="#">Visualizar</a>
+                <ul>
+                  <li><a href="ListaInsumo.html">Lista de insumo</a></li>
+                  <li><a href="Grafico.html">Grafico</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
 
         <li><a href="#">Safra</a>
           <ul>
             <li><a href="#">Incluir</a>
             <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Mover</a>
-            <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
-                <li><a href="#">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
+                <li><a href="CadastroPlantacao.html">Plantação</a></li>
+                <li><a href="CadastroTalhão.html">Talhão</a></li>
+                <li><a href="CadastroCultura.html">Cultura</a></li>
+                <li><a href="CadastroColheita.html">Colheita</a></li>
               </ul>
             </li>
             <li><a href="#">Visualizar</a>
               <ul>
-                <li><a href="#">Plantação</a></li>
-                <li><a href="#">Talhão</a></li>
+                <li><a href="ListaPlantacao.html">Plantação</a></li>
+                <li><a href="ListaTalhao.html">Talhão</a></li>
                 <li><a href="listaCultura.html">Cultura</a></li>
-                <li><a href="#">Colheita</a></li>
+                <li><a href="ListaColheira.html">Colheita</a></li>
               </ul>
             </li>
           </ul>
@@ -107,7 +85,7 @@
               <!-- O mega menu suspenso -->
               <div style="width:400px;max-width:100%;">
                 <div style="padding:5px 24px;">
-                  <p><strong>Guia de tela<br></strong>Nessa rotina você ira cadastrar as sua culturas, informando o nome, o tipo do produto, preço unitario e o seu ciclo de maturação</p>
+                  <p><strong>Guia de tela<br></strong>Nessa rotina você ira realizar o cadastro toda vez que fizer uma nova colheita</p>
                 </div>
               </div>
             </li>
@@ -136,35 +114,35 @@
       
       <center>	
         <h1>Cadastro de Colheita</h1>
-      </center><br><br>
+      </center>
   
         <!-- NOME -->
-        <div class="row">
+        <div class="row" style="padding:0px">
           <div class="col-md-3 col-md-offset-3">
             <label>Código Plantação</label><br>
-            <input class="form-control" type="text" id="idPlantacao" name="idPlantacao" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 120%;">
+            <input class="form-control" type="text" id="idPlantacao" name="idPlantacao" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 117%;">
           </div>
           <div class="col-md-3">
             <label>QTD Caixas</label><br>
-            <input class="form-control" type="text" id="qtdCaixas" name="qtdCaixas" max="10" placeholder="" style="width: 120%;">
+            <input class="form-control" type="text" id="qtdCaixas" name="qtdCaixas" max="10" placeholder="" style="width: 117%;">
           </div>
         </div><br>
 
-        <div class="row">
+        <div class="row" style="padding:0px">
           <div class="col-md-3 col-md-offset-3">
-            <label>Preço</label><br>
-            <input class="form-control" type="text" id="preco" name="preco" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 120%;">
+            <label>Preço Unitário</label><br>
+            <input class="form-control" type="text" id="preco" name="preco" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 117%;">
           </div>
           <div class="col-md-3">
             <label>Data da colheita</label><br>
-            <input class="form-control" type="text" id="dataColheita" name="dataColheita" max="10" placeholder="" style="width: 120%;">
+            <input class="form-control" type="date" id="dataColheita" name="dataColheita" max="10" placeholder="" style="width: 117%;">
           </div>
-        </div><br><br>
+        </div><br><br><br>
 
         <!-- BOTÕES -->
         <div class="row">
           <div class="col-md-offset-3 col-md-3">
-            <input type="button"  class="botao_padrao" value="Cadastrar" id="botao-criar-insumo" >
+            <input type="button"  class="botao_padrao" value="Cadastrar" id="botao-criar-colheita" >
         </div>
       </div>
       <div class="row">
@@ -176,42 +154,6 @@
 
   
     <script>
-
-$(function() {
-    $("#dataColheita").datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-    });
-});
-
-
-$(function() {
-    $("#dataColheita").datepicker({
-        showOtherMonths: true,
-        selectOtherMonths: true
-    });
-});
-
-
-$(function() {
-    $("#dataColheita").datepicker({
-        changeMonth: true,
-        changeYear: true
-    });
-});
-
-    
-    $(function() {
-              $( "#dataColheita" ).datepicker({
-                    showButtonPanel:true
-    
-                  });
-              
-          });
 
 
     function mascara(o,f){
@@ -264,7 +206,7 @@ return v.replace(/\D/g,"") //Remove tudo o que não é dígito
 
 
   </body>
-  <script src="cadastroCultura.js"></script>
+  <script src="../js/colheita.js"></script>
   
 </html>
 

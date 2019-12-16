@@ -19,12 +19,13 @@
 
 <body>
 
+
   <div class="limiter">
     <div class="container-login100">
       <div class="login100-more"></div>
 
       <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-        <form class="wrap-login100-form validate-form" onsubmit="return autenticar()" method="POST">
+        <form class="wrap-login100-form validate-form" id="formlogin">
 
           <div class='cp-img-div'>
             <span class="login100-form-title p-b-59">
@@ -46,11 +47,11 @@
 
           <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
-                <a href="MenuPrincipal.html"><div class="login100-form-bgbtn"></div>
-              <button class="login100-form-btn" id="btn-submit" type="submit" onclick="validatePassword()">
+          <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn" id="btn-submit">
                 Entrar
               </button>
-              <p id="result"></p>
+
             </div></a>
             <br> <br>
             <a href="" id="showModal" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30" >
@@ -65,48 +66,6 @@
 
 
         </form>
-        <span id="span_mensagem" style="display: none;">Login ou senha inválida</span>
-
-
-        <script>
-          var login = document.getElementById("email");
-          var senha = document.getElementById("senhas");
-
-          function validatePassword() {
-            if (login.value == "" || login.value.indexOf('@') == -1 || login.value.indexOf('.') == -1) {
-              alert("coloque o email correto!");
-            } else if (senha.value == "" || senha.value.length < 6) {
-              alert('preencha com a senha correta');
-            }
-          }
-
-        </script>
-        <script>
-          function autenticar() {
-            var dados = $('#formLogin').serialize();
-            $.ajax({
-              url: "login",
-              type: 'POST',
-              data: dados
-            })
-              .done(function (resposta) {
-                window.location.href = 'Telademenu.html';
-              })
-              .fail(function (jqXHR, textStatus) {
-                $('#span_mensagem').show();
-              });
-            return false;
-          }
-        </script>
-
-
-<style type="text/css">
-  .modal .modal-dialog {
-    width: 400px;
-  }
-</style>
-
-
 
 
 <div id="modal" class="modal">
@@ -127,8 +86,8 @@
               </div>
 
               <div class="modal-footer">
-                  <button class="btn btn-danger" type="button" onclick="modal.close();">Cancelar</button>
-                  <button class="btn btn-success" type="submit" onclick="modal.close();">Enviar</button>
+                  <button class="btn btn-danger" id="cancelar" type="button" onclick="modal.close();">Cancelar</button>
+                  <button class="btn btn-success" id="enviar" type="submit" onclick="modal.close();">Enviar</button>
               </div>
           </form>
       </div>
@@ -137,5 +96,6 @@
 
 
 </body>
+<script src="../js/login.js"></script>
 
 </html>

@@ -2,14 +2,12 @@ var botaoCriarCulturas = document.querySelector("#cadastrar-talhao");
 
 botaoCriarCulturas.addEventListener("click", function() {
 
-    var form = document.querySelector("#form-cadastro-talhao");
+    var form = document.querySelector("#formuser");
 
     var talhoes = {
-        id:form.id.value,
-        nome: form.nome.value,
-        disponibilidade: form.disponibilidade.value
+        nome:form.nomeTalhao.value,
+        disponibilidade:form.disponibilidade.value
     }
-
 
     var xhr = new XMLHttpRequest();
 
@@ -26,7 +24,7 @@ botaoCriarCulturas.addEventListener("click", function() {
         var talhao = JSON.parse(resposta);
 
 
-        alert('Talhão '+ talhoes.nome+" foi criado.")
+        alert('talhão ' + talhoes.nome+   ' criado com sucesso!');
 
      
 
