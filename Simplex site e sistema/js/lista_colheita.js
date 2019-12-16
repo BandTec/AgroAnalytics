@@ -34,11 +34,10 @@ function populaTabela() {
             talhoes,
             insumo,
             objLista[i].dataColheita,
-            objLista[i].precoCaixa,
-            objLista[i].quantCaixas,
+            objLista[i].caixas,
             objLista[i].precoColheita, 
 
-            '<a href="#"><span class="glyphicon glyphicon-pencil"></span> Editar</a>'
+            
         ]).draw();
 
     }

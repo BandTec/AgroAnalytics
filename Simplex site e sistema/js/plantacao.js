@@ -87,11 +87,11 @@ botaoPlantacao.addEventListener("click", function() {
 
         var resposta = xhr.responseText;
 
+        alert(resposta);
+
         var plantacao = JSON.parse(resposta);
 
        
-
-        alert("A plantação foi criada com sucesso!");
 
     });
 

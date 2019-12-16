@@ -23,8 +23,8 @@ botaoCriarCulturas.addEventListener("click", function() {
         id : form.idPlantacao.value
     },
         dataColheita: dataFormatada,
-        precoCaixa: form.preco.value,
-        quantCaixas: form.qtdCaixas.value
+        caixas: form.qtdCaixas.value,
+        precoColheita: form.preco.value
     }
 
 

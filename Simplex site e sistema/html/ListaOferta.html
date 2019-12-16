@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Lista de Plantação</title>
+  <title>Lista de Ofertas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Signika:400,600'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 <!-- HOVER EFFECTS (da hora) -->
 <link rel="stylesheet" href="../css/hover-min.css">
-<link rel="stylesheet" href="../css/styleTelas.css">
+<link rel="stylesheet" href="../css/css/styleTelas.css">
 <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -37,7 +37,7 @@
 <!-- Tema do menu "sm-blue" (opcional, você também pode usar seu próprio CSS) -->
 <link href="../css/sm-blue.css" rel="stylesheet" type="text/css" />
 
-<script src='../js/lista_plantacao.js'></script>
+<script src='../js/lista_oferta.js'></script>
 <script src='../js/delete.js'></script>
 
 <script type="text/javascript" src="../js/jquery.smartmenus.js"></script>
@@ -78,41 +78,35 @@
       
         <nav id="main-nav">
 
+
+
           <!-- Definição de menu de amostra -->
           <ul id="main-menu" class="sm sm-blue"><br>
-              <li><img src="../imagens/Simp2.png" width="300px"  style="top: auto;" alt=""></li>
-              
-              <li><a href="MenuPrincipal.html">Início</a></li>
-
-              <li><a href="#">Insumo</a>
-                <ul>
-                  <li><a href="CadastroInsumo.html">Incluir</a></li>
-    
-                  <li><a href="#">Visualizar</a>
-                    <ul>
-                      <li><a href="ListaInsumo.html">Lista de insumo</a></li>
-                      <li><a href="Grafico.html">Grafico</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-    
+            <li><img src="../imagens/Simp2.png" width="300px" style="top: auto;" alt=""></li>
+      
+            <li><a href="MenuPrincipal.html">Início</a></li>
+      
+            <li><a href="#">Insumo</a>
+              <ul>
+                <li><a href="CadastroInsumo.html">Incluir</a></li>
+      
+                <li><a href="#">Visualizar</a>
+                  <ul>
+                    <li><a href="ListaInsumo.html">Lista de insumo</a></li>
+                    <li><a href="Grafico.html">Grafico</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+      
             <li><a href="#">Safra</a>
               <ul>
                 <li><a href="#">Incluir</a>
-                <ul>
+                  <ul>
                     <li><a href="CadastroPlantacao.html">Plantação</a></li>
                     <li><a href="CadastroTalhão.html">Talhão</a></li>
                     <li><a href="CadastroCultura.html">Cultura</a></li>
                     <li><a href="CadastroColheita.html">Colheita</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Mover</a>
-                <ul>
-                    <li><a href="#">Plantação</a></li>
-                    <li><a href="#">Talhão</a></li>
-                    <li><a href="#">Cultura</a></li>
-                    <li><a href="#">Colheita</a></li>
                   </ul>
                 </li>
                 <li><a href="#">Visualizar</a>
@@ -131,52 +125,65 @@
                   <!-- O mega menu suspenso -->
                   <div style="width:400px;max-width:100%;">
                     <div style="padding:5px 24px;">
-                      <p><strong>Guia de tela<br></strong>Nessa rotina você Podera ter acesso todas as suas plantações já cadastradas no sistema</p>
+                      <p><strong>Guia de tela<br></strong>Visualize as ofertas que os compradores deram de acordo com suas colheitas. 
+                                                           
+                                                          </p>
                     </div>
                   </div>
                 </li>
               </ul>
             </li>
-            
-            <img class="circle" src="../imagens/mei.jpg" alt="some text" width=15 height=110 style="left: 0px;"> 
-              
-              <b><p class="nome">Alfredo Neves</p></b>
-    
-           
-             
+      
+            <img class="circle" src="../imagens/mei.jpg" alt="some text" width=15 height=110 style="left: 0px;">
+      
+            <b>
+              <p class="nome">Alfredo Neves</p>
+            </b>
+      
+      
+      
           </ul>
         </nav>
-
+      
 
         <span id="topo"></span>
 
         <div class="text-center">
-            <h1>Lista de Plantação</h1>
+            <h1>Lista de Ofertas</h1>
         </div>
 
         <div class="container">
             <table  class="estrutura_table table table-spriped table-bordered" id="tabela-culturas" style="width:100%">
             <thead>
                 <tr>
-                    <th>Código de Plantação</th>
-                    <th>Data de criação</th>
-                    <th>Data da colheita</th>
-                    <th>Data de consumo</th>
-                    <th>Cultura</th>
-                    <th>Talhôes</th>
-                    <th>Insumos</th>
-                    
-               
+                    <th>id_Oferta</th>
+                    <th>id_colheita</th>
+                    <th>valor da oferta</th>
+                    <th>Quantidade de Caixas</th>
+              
                 </tr>
             </table>
-        </div>
+        </div><br><br><br><br>
         
 
   </section>
-
+  <form id="formuser" name="formuser">
+<div class="row">
   
 
+  <div>
+    <div class="col-md-6 col-md-offset-1">
+      <label>
+    Id Oferta:
+  </label>
+  <input class="form-control" type="number" id="idOferta" name="idOferta" maxlength="11" placeholder="" onblur="return verificarCPF(this.value)" style="width: 10%;">
+</div>	 
 
+<div class="col-md-5 col-md-offset-1">
+  <button class="btn btn-success" id="leilao">Fechar negócio</button>
+</div>
+
+</form>
   </section>
 
   
@@ -218,4 +225,4 @@
 
   };
 </script>
-<script src="../imagens/form.js"></script>
+<script src="../js/oferta.js"></script>
