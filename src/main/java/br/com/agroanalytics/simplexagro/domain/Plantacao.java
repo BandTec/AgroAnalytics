@@ -48,6 +48,9 @@ public class Plantacao {
 	@JoinColumn(name = "id_insumos")
 	private List<Insumo> insumos;
 
+	@JsonProperty
+	private double quantLitrosAplicados;
+	
 	public Plantacao() {
 	}
 	
@@ -61,43 +64,29 @@ public class Plantacao {
 		this.insumos = insumos;
 	}
 
-
-
 	public String getDataCriacao() {
 		return dataCriacao;
 	}
-
-
 
 	public void setDataCriacao(String dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
 
-
-
 	public String getDataColheita() {
 		return dataColheita;
 	}
-
-
 
 	public void setDataColheita(String dataColheita) {
 		this.dataColheita = dataColheita;
 	}
 
-
-
 	public String getDataConsumo() {
 		return dataConsumo;
 	}
 
-
-
 	public void setDataConsumo(String dataConsumo) {
 		this.dataConsumo = dataConsumo;
 	}
-
-
 
 	public Cultura getCultura() {
 		return cultura;
@@ -184,4 +173,12 @@ public class Plantacao {
 		this.setDataConsumo(dataFinal);
 	}
 
+	public double getQuantLitrosAplicados() {
+		return quantLitrosAplicados;
+	}
+
+	public void setQuantLitrosAplicados(double quantLitrosAplicados) {
+		this.quantLitrosAplicados = quantLitrosAplicados;
+	}
+	
 }

@@ -26,15 +26,23 @@ public class Insumo {
 	@JsonProperty
 	private double quantRecomendada;
 	
-	public Insumo() {
+	@JsonProperty
+	private double precoUnitario;
+	
+	@JsonProperty
+	private double volumeRecipiente;
 
-	}
-
-	public Insumo(String nome, String tipo, int tempoAcao, double quantRecomendada) {
+	public Insumo() {}
+	
+	public Insumo(String nome, String tipo, int tempoAcao, double quantRecomendada, double precoUnitario,
+			double volumeRecipiente) {
+		
 		this.nome = nome;
 		this.tipo = tipo;
 		this.tempoAcao = tempoAcao;
 		this.quantRecomendada = quantRecomendada;
+		this.precoUnitario = precoUnitario;
+		this.volumeRecipiente = volumeRecipiente;
 	}
 
 	public String getNome() {
@@ -69,8 +77,27 @@ public class Insumo {
 		this.quantRecomendada = quantRecomendada;
 	}
 
+	public double getPrecoUnitario() {
+		return precoUnitario;
+	}
+
+	public void setPrecoUnitario(double precoUnitario) {
+		this.precoUnitario = precoUnitario;
+	}
+
+	public double getVolumeRecipiente() {
+		return volumeRecipiente;
+	}
+
+	public void setVolumeRecipiente(double volumeRecipiente) {
+		this.volumeRecipiente = volumeRecipiente;
+	}
+
 	public Long getId() {
 		return id;
 	}
+	
+	
+	
 
 }

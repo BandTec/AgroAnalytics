@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import br.com.agroanalytics.simplexagro.repository.CulturaRepository;
 import br.com.agroanalytics.simplexagro.repository.PlantacaoRepository;
 import br.com.agroanalytics.simplexagro.repository.UsuarioRepository;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/culturas")
 public class CulturaController {
@@ -37,7 +39,7 @@ public class CulturaController {
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity criarCultura(@RequestBody Cultura cultura) {
+	public ResponseEntity<Cultura> criarCultura(@RequestBody Cultura cultura) {
 
 		culturaRepository.save(cultura);
 
@@ -93,10 +95,10 @@ public class CulturaController {
 
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity atualizarCultura(@PathVariable("id") Long id, @RequestBody Cultura cultura) {
+	@PutMapping
+	public ResponseEntity atualizarCultura(@RequestBody Cultura cultura) {
 
-		if (culturaRepository.findById(id) == null) {
+		if (culturaRepository.findById(cultura.getId()) == null) {
 
 			return ResponseEntity.noContent().build();
 

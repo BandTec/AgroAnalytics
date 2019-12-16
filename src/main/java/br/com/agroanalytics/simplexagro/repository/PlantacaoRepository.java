@@ -21,6 +21,9 @@ public interface PlantacaoRepository extends JpaRepository<Plantacao, Long> {
 	
     @Query("select a.id from Plantacao as a where a.talhoes = :talhao")
 	public Long buscarPlantacaoPeloTalhao(@Param("talhao") Talhao talhao);
+    
+    @Query("select sum(a.quantLitrosAplicados) from Plantacao as a")
+    public Double buscarTodosInsumosAplicados();
 
 
 

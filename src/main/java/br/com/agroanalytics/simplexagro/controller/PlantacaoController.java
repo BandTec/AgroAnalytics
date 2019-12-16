@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,14 +20,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agroanalytics.simplexagro.domain.Cultura;
+import br.com.agroanalytics.simplexagro.domain.GraficoInsumos;
 import br.com.agroanalytics.simplexagro.domain.Insumo;
 import br.com.agroanalytics.simplexagro.domain.Plantacao;
 import br.com.agroanalytics.simplexagro.domain.Talhao;
 import br.com.agroanalytics.simplexagro.repository.CulturaRepository;
+import br.com.agroanalytics.simplexagro.repository.GraficoInsumosRepository;
 import br.com.agroanalytics.simplexagro.repository.InsumoRepository;
 import br.com.agroanalytics.simplexagro.repository.PlantacaoRepository;
 import br.com.agroanalytics.simplexagro.repository.TalhaoRepository;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/plantacoes")
 public class PlantacaoController {
@@ -43,15 +47,22 @@ public class PlantacaoController {
 	@Autowired
 	private TalhaoRepository talhaoRepository;
 
+	@Autowired
+	private GraficoInsumosRepository graficoInsumosRepository;
+
 	@PostMapping
 	@Transactional
 	public ResponseEntity criarPlantacao(@RequestBody Plantacao plantacao) throws ParseException {
 
+		GraficoInsumos graficoInsumos;
+
 		ArrayList<Talhao> talhao;
 
 		ArrayList<Insumo> insumos;
-		
+
 		Cultura cultura = null;
+
+		graficoInsumos = new GraficoInsumos();
 
 		insumos = new ArrayList<Insumo>();
 
@@ -69,8 +80,6 @@ public class PlantacaoController {
 						+ ", não foi encontrado! Criar o insumo antes de aplicar ele em uma plantação.");
 
 			}
-			
-//			plantacao.setInsumos(insumos);
 
 		}
 
@@ -84,7 +93,8 @@ public class PlantacaoController {
 			}
 			if (talhaoRepository.buscarDisponibilidade(a.getId()) == false) {
 
-				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Deu errado"+plantacaoRepository.findByTalhoes(a));
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+						.body("Deu errado" + plantacaoRepository.findByTalhoes(a));
 
 			}
 		}
@@ -102,22 +112,36 @@ public class PlantacaoController {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("A cultura id: " + plantacao.getCultura()
 					+ " não foi encontrada! Criar a cultura antes de aplicar ela em uma plantação.");
 		}
-		
+
 		plantacao.calcularDataColheita(culturaRepository.buscarMaturacaoPorId(plantacao.getCultura().getId()));
-		
+
 		int tempo = 0;
-		
-		for(Insumo i : insumos) {
-		
-			if(insumoRepository.buscarTempoAcaoPorId(i.getId()) > tempo)
-			
-			plantacao.calcularDataConsumo(insumoRepository.buscarTempoAcaoPorId(i.getId()));
-			
+
+		for (Insumo i : insumos) {
+
+			if (insumoRepository.buscarTempoAcaoPorId(i.getId()) > tempo)
+
+				plantacao.calcularDataConsumo(insumoRepository.buscarTempoAcaoPorId(i.getId()));
+
 			tempo = insumoRepository.buscarTempoAcaoPorId(i.getId());
-			
+
+		}
+		
+		plantacaoRepository.save(plantacao);
+
+		graficoInsumos.setData(plantacao.getDataCriacao());
+
+		graficoInsumos.setQuantLitrosAplicados(plantacao.getQuantLitrosAplicados());
+
+		graficoInsumos.setTotalInsumosGastos(plantacaoRepository.buscarTodosInsumosAplicados());
+		
+		for (Insumo a : insumos) {
+
+			graficoInsumos.setQuantInsumosTotal(insumoRepository.buscarVolumeRecipiente(a.getId()) - plantacao.getQuantLitrosAplicados());
+
 		}
 
-		plantacaoRepository.save(plantacao);
+		graficoInsumosRepository.save(graficoInsumos);
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(plantacao);
 
