@@ -55,23 +55,22 @@ public class OfertaController {
 	}
 	
 	@PostMapping("/aceitarOferta")
-	public ResponseEntity aceitarOferta(@RequestBody Oferta oferta) {
+	public ResponseEntity aceitarOferta(@RequestBody Long idOferta) {
 		
-		if (ofertaRepository.existsById(oferta.getId()) == true && colheitaRepository.existsById(oferta.getIdColheita()) == true) { 
+		if (ofertaRepository.existsById(idOferta) == true && colheitaRepository.existsById(idOferta) == true) { 
+		
+			Optional<Oferta> oferta = ofertaRepository.findById(idOferta);
 			
-			colheitaRepository.mudarEstado(colheitaRepository.buscarCaixas(oferta.getIdColheita())- oferta.getQuantCaixasCompradas(), oferta.getIdColheita());
+			Optional<Colheita> colheita = colheitaRepository.findById(oferta.get().getIdColheita());
+			
+			colheitaRepository.mudarEstado(colheitaRepository.buscarCaixas(colheita.get().getId()) - oferta.get().getQuantCaixasCompradas(), oferta.get().getIdColheita());
 			
 			return ResponseEntity.status(HttpStatus.OK).body("Negócio fechado!");
 
-		}else if(!ofertaRepository.existsById(oferta.getId())) {
-
-		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Oferta com id's inválidos!");
-		
 		}else {
-			
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Lance com id's inválidos!");
 
-			
+		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Oferta ou Lance com id's inválidos!");
+		
 		}
 	}
 	
