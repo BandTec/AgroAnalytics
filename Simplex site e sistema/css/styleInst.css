@@ -562,3 +562,52 @@ h3 {
     #map {
       height: 300px; } }
 
+      .linha {
+        color: #f00;
+        background-color: rgb(65, 206, 0);
+        height: 10px;
+      }
+      
+      .quadro {
+        border: 5px solid rgb(65, 206, 0);
+        color: rgb(255, 255, 255);
+        background-color: #fff;
+        height: 15px;
+      }
+      
+      .canvas1 {
+        border: 2px solid rgb(65, 206, 0);
+        color: rgb(255, 255, 255);
+        background-color: #fff;
+        height: 200px;
+        left: 10px;
+      }
+      
+      .canvas2 {
+        border: 2px solid rgb(65, 206, 0);
+        color: rgb(255, 255, 255);
+        background-color: #fff;
+        height: 200px;
+        left: 50px;
+      }
+      
+      .canvas3 {
+        border: 2px solid rgb(65, 206, 0);
+        color: rgb(255, 255, 255);
+        background-color: #fff;
+        height: 200px;
+        left: 50px;
+      }
+      
+      .botao_padrao{
+        padding: 20px;
+        background: rgb(54, 172, 0);
+        color: #fff;
+        width: 300px;
+        border: 0px;
+        border-radius:5px;
+        left: 220px;
+        top: 30px;
+        position: relative;
+        font-size: 30px;
+      }
